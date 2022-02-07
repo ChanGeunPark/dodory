@@ -1,7 +1,12 @@
 import type { NextPage } from 'next'
 import Link from 'next/link'
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css'
+
 
 const Home: NextPage = () => {
+
+ 
   return (
     <div>
       <div className="px-4">
@@ -67,6 +72,10 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
+        </article>
+
+        <article className="">
+        
         </article>
 
 
