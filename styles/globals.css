@@ -16,3 +16,7 @@ h5,
 h6 {
   font-family: "Noto Sans KR", sans-serif;
 }
+
+.container {
+  transition: all 0.3s;
+}
