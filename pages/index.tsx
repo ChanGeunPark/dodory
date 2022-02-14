@@ -527,7 +527,7 @@ const Home: NextPage = () => {
                   </div>
                   <div className='pt-3'>
                     <span className='text-zinc-500'>둥글둥글 귀여운 다육</span>
-                    <h3 className='text-lg font-semibold'>눈꽃 다육</h3>
+                    <h3 className='text-lg font-semibold'>백조 다육</h3>
                     <div className='flex justify-between items-end mt-2'>
                       <h4 className='font-bold text-2xl text-red-500'>30,000<span className='text-sm text-zinc-500'>원</span></h4>
                       <span className='text-sm text-zinc-500'>남은수량 1개</span>
