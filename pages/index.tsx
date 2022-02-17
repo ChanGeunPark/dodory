@@ -5,6 +5,7 @@ import 'swiper/css'
 import { Navigation, Pagination } from 'swiper';
 import { useEffect, useState } from 'react';
 import { cls } from '../libs/utils'
+import Navbar from '../components/Navbar';
 
 
 const Home: NextPage = () => {
@@ -28,80 +29,8 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <div className={cls(
-        ScrollY > 1 ? "bg-white shadow-md" : "bg-transparent",
-        "dodory-top px-4 fixed top-0 z-40 left-0 w-full transition-all"
-      )}>
-        <header className='mx-auto container flex justify-between items-center h-20'>
-          <div className='flex items-center'>
-            <h1 className={cls(
-              "text-3xl font-bold ",
-              ScrollY > 1 ? "text-zinc-900" : "text-white",
-            )}>dodo:)re</h1>
-            <nav className='ml-14 hidden sm:flex'>
-              <ul className='flex space-x-8 font-medium'>
-                <li className={cls(
-                  ScrollY > 1 ? "text-zinc-900" : "text-white"
-                )}>다육이</li>
-                <li className={cls(
-                  ScrollY > 1 ? "text-zinc-900" : "text-white"
-                )}>이벤트</li>
-                <li className={cls(
-                  ScrollY > 1 ? "text-zinc-900" : "text-white"
-                )}>소품샵</li>
-                <li className={cls(
-                  ScrollY > 1 ? "text-zinc-900" : "text-white"
-                )}>고객센터</li>
-              </ul>
-            </nav>
-          </div>
-          <div className={cls(
-            "flex text-white space-x-6 border border-whitea px-6 py-2 rounded-full font-medium",
-            ScrollY > 1 ? "text-zinc-900 border-none" : null
-          )}>
-                <Link href="/">
-                  <a className={cls(ScrollY > 1 ? "text-zinc-900" : "text-white")}>로그인</a>
-                </Link>
-                <Link href="/">
-                  <a className={cls(ScrollY > 1 ? "text-zinc-900" : "text-white")}>회원가입</a>
-                </Link>
-          </div>
-          <div className='flex-row space-x-2 hidden'>{/*로그인 했을때 보여주기*/}
-            <svg
-                className={cls(
-                  "w-7 h-7",
-                  ScrollY > 1 ? "stroke-zinc-900" : "stroke-white"
-                )}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-            </svg>
-          
-            <svg
-                className={cls(
-                  "w-7 h-7",
-                  ScrollY > 1 ? "stroke-zinc-900" : "stroke-white"
-                )}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-        </header>
-        
-      </div>
+      <Navbar/>
+      
       <div className='w-full absolute z-20 h-96 bg-gradient-to-b from-gray-800 to-transparent mix-blend-multiply'>
         <span className='hidden'>shadow</span>
       </div>
