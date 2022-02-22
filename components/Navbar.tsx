@@ -59,7 +59,7 @@ export default function Navbar(){
           "flex text-white space-x-6 border border-whitea px-6 py-2 rounded-full font-medium",
           ScrollY > 1 ? "text-zinc-900 border-none" : ""
         )}>
-              <Link href="/auth/login">
+              <Link href="/enter">
                 <a className={cls(ScrollY > 1 ? "text-zinc-900" : "text-white")}>로그인</a>
               </Link>
               <Link href="/">
