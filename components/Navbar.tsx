@@ -29,28 +29,28 @@ export default function Navbar(){
   return(
     
     <div className={cls(
-      ScrollY > 1 ? "bg-white shadow-md" : "bg-transparent",
-      router.pathname === "/" ? "dodory-top px-4 fixed top-0 z-40 left-0 w-full transition-all" : "dodory-top px-4 bg-zinc-700"
+      ScrollY > 1 && router.pathname == "/" ? "bg-white shadow-md" : "bg-transparent",
+      router.pathname === "/" ? "dodory-top px-4 fixed top-0 z-40 left-0 w-full transition-all" : "dodory-top bg-white px-4 border-b border-zinc-100"
     )}>
       <header className='mx-auto container flex justify-between items-center h-20'>
         <div className='flex items-center'>
           <h1 className={cls(
             "text-3xl font-bold ",
-            ScrollY > 1 ? "text-zinc-900" : "text-white",
-          )}>dodo:)re</h1>
+            ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900",
+          )}><Link href="/"><a> dodo:&#41;re</a></Link></h1>
           <nav className='ml-14 hidden sm:flex'>
             <ul className='flex space-x-8 font-medium'>
               <li className={cls(
-                ScrollY > 1 ? "text-zinc-900" : "text-white"
+                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
               )}>다육이</li>
               <li className={cls(
-                ScrollY > 1 ? "text-zinc-900" : "text-white"
+                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
               )}>이벤트</li>
               <li className={cls(
-                ScrollY > 1 ? "text-zinc-900" : "text-white"
+                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
               )}>소품샵</li>
               <li className={cls(
-                ScrollY > 1 ? "text-zinc-900" : "text-white"
+                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
               )}>고객센터</li>
             </ul>
           </nav>
@@ -60,10 +60,10 @@ export default function Navbar(){
           ScrollY > 1 ? "text-zinc-900 border-none" : ""
         )}>
               <Link href="/enter">
-                <a className={cls(ScrollY > 1 ? "text-zinc-900" : "text-white")}>로그인</a>
+                <a className={cls(ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-600")}>로그인</a>
               </Link>
               <Link href="/">
-                <a className={cls(ScrollY > 1 ? "text-zinc-900" : "text-white")}>회원가입</a>
+                <a className={cls(ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-600")}>회원가입</a>
               </Link>
         </div>
         <div className='flex-row space-x-2 hidden'>{/*로그인 했을때 보여주기*/}
