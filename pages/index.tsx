@@ -34,7 +34,7 @@ const Home: NextPage = () => {
               <p className='leading-8 text-white'>
                 너희는 언제나 정성으로 보살핀 사랑이 가득한<br />
                 다육이와 함께하고 있습니다<br />
-                저희 dodory와 남다른 하루를 시작해보세요
+                저희 dodory와 남다른 하루를 시작해보세요.
               </p>
             </div>
           </div>
