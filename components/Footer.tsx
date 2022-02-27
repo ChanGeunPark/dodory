@@ -2,7 +2,7 @@
 
 export default function Footer(){
   return(
-    <footer className='py-16 bg-gray-100 border-t border-zinc-100'>
+    <footer className='py-16 bg-gray-100 border-t border-zinc-100 '>
         <div className='container mx-auto flex justify-between'>
           <div className='flex flex-col'>
             <h2 className='text-2xl mb-5 font-semibold text-zinc-700'>DODO:&#41;re</h2>

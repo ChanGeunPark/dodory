@@ -59,10 +59,10 @@ export default function Navbar(){
           "flex text-white space-x-6 border border-whitea px-6 py-2 rounded-full font-medium",
           ScrollY > 1 ? "text-zinc-900 border-none" : ""
         )}>
-              <Link href="/enter">
+              <Link href="/login">
                 <a className={cls(ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-600")}>로그인</a>
               </Link>
-              <Link href="/">
+              <Link href="/join">
                 <a className={cls(ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-600")}>회원가입</a>
               </Link>
         </div>

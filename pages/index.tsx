@@ -16,8 +16,6 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Navbar/>
-      
       <div className='w-full absolute z-20 h-96 bg-gradient-to-b from-gray-800 to-transparent mix-blend-multiply'>
         <span className='hidden'>shadow</span>
       </div>

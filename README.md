@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## dodore 쇼핑몰
 
-## Getting Started
+nextjs,mySQL,Tailwind,placetscale기반으로 만들어진 다육이 쇼핑몰입니다.
 
-First, run the development server:
+## 통신
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+백엔드 서버와 프론트 서버를 분리하여 페이지의 요청에 대한 것을 REST API로 응답 진행했습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## dodore Reloaded
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+/ => Home
+/join -> Join
+/login -> Login
+/search -> Search
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+/users/:id -> See Profile
+/users/logout -> Log Out
+/users/edit -> Edit MY Profile
+/users/delete -> Delete MY Profile
+!유저로 로그인 했으면 내 프로필만 eidt하고 delete할 수 있다.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+/item -> See Items
+/item/:id -> See Item
+/item/:id/edit -> Edit Item
+/item/:id/delete -> Delete Item
+/item/upload -> Upload Item

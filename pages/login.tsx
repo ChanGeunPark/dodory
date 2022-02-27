@@ -1,14 +1,10 @@
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 
 
-
-export default function Enter(){
+export default function Login(){
   return(
     <div>
-      <Navbar/>
-      <div className='bg-[#F9F9F9] mb-16 min-h-[700px] flex justify-center items-center flex-col'>
-        <div className='py-16'>
+      <div className='bg-[#F9F9F9] min-h-[700px] flex justify-center items-center flex-col border'>
+        <div className='pb-16'>
             <h1 className='font-semibold text-2xl text-center'>dodo:&#41;re 로그인</h1>
             <p className='font-medium text-zinc-500 text-center mt-2'>dodore에 오신것을 진심으로 환영합니다</p>
         </div>
@@ -28,7 +24,6 @@ export default function Enter(){
         </article>
 
       </div>
-      <Footer/>
     </div>
   )
 }
