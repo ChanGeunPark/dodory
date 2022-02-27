@@ -549,8 +549,6 @@ const Home: NextPage = () => {
 
 
       </main>
-
-      <Footer/>
     <style jsx>{`
       .banner-sub-title{
         font-family: 'Oooh Baby', cursive;

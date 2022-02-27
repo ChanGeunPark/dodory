@@ -8,13 +8,6 @@ const tels = ['010','02','031','032','033','041','042','043','051','052','053','
 
 export default function Join(){
 
-
-
-
-
-
-
-
   return(
     <div className='bg-gray-100 py-16'>
       <article className='w-[650px] max-w-full mx-auto'>
