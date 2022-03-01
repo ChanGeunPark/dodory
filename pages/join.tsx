@@ -1,7 +1,7 @@
-import Input from '../components/Input';
+import Input from '@components/Input';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-import useMutation from '../libs/client/useMutation';
+import useMutation from '@libs/client/useMutation';
 
 
 const tels = ['010','02','031','032','033','041','042','043','051','052','053','054','055','063','061','062','064'];
@@ -25,11 +25,9 @@ export default function Join(){
   const [submitting, setSubmitting] = useState(false);
 
   const {register, watch, reset, formState:{ errors }, handleSubmit} = useForm<joinForm>();
+  const onValid = (validForm:joinForm) => {
 
-
-  const onValid = (data:joinForm) => {
-
-    join(data);//join에 데이터를 보내줄것이다.
+    join(validForm);//join에 데이터를 보내줄것이다.
 
     // setSubmitting(true);
     // fetch("/api/users/join",{
@@ -41,7 +39,7 @@ export default function Join(){
     // }).then(()=>{setSubmitting(false)});
   }
 
-
+  console.log(loading, data, error);
   return(
     <div className='bg-gray-100 py-16'>
       <article className='w-[650px] max-w-full mx-auto'>

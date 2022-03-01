@@ -4,9 +4,9 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css'
 import { Navigation, Pagination } from 'swiper';
 import { useEffect, useState } from 'react';
-import { cls } from '../libs/utils'
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { cls } from '@libs/client/utils'
+import Navbar from '@components/Navbar';
+import Footer from '@components/Footer';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
