@@ -3,9 +3,21 @@ import withHandler from '@libs/server/withHandler';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 
-function handler(
+async function handler(
   req:NextApiRequest, res:NextApiResponse
 ){
+  const {name} = req.body;
+  let user;
+
+  if(!name){
+    console.log("Did not find. Will create.");
+    user = await client.user.create({
+      data:{
+        name:"Anonymous",
+      }
+    });
+  }
+  console.log(user);
   // if(req.method !== "POST"){
   //   res.status(401).end();
   // }

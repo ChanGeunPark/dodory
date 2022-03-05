@@ -1,7 +1,10 @@
 import Input from '@components/Input';
 import { useForm } from 'react-hook-form';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import useMutation from '@libs/client/useMutation';
+import DaumPostcode from 'react-daum-postcode';
+import PopupPostCode from '@components/PopupPostCode';
+import PopupDom from '@components/PopupDom';
 
 
 const tels = ['010','02','031','032','033','041','042','043','051','052','053','054','055','063','061','062','064'];
@@ -9,6 +12,8 @@ const tels = ['010','02','031','032','033','041','042','043','051','052','053','
 interface joinForm{
   user_id:string,
   password:string,
+  phone:string,
+  address:string,
   name:string,
   email:string,
   errors:string,
@@ -16,7 +21,13 @@ interface joinForm{
 
 
 
+
+
+
 export default function Join(){
+
+
+console.log(useRef);
 
   const [join, {loading, data, error}] = useMutation("/api/users/join");
   //array의 첫번째 item은 우리가 호출할 수 있는 function이 될것이다. 그 function이 백엔드로 POST fetch를 할 것이다. 그걸 뮤테이션이라 부른다.
@@ -25,7 +36,20 @@ export default function Join(){
   const [submitting, setSubmitting] = useState(false);
 
   const {register, watch, reset, formState:{ errors }, handleSubmit} = useForm<joinForm>();
+
+
+
+  const phone = register('phone', {value : "asdfasd"});//핸드폰
+
+
+
+
+
+
+
   const onValid = (validForm:joinForm) => {
+
+    console.log(validForm);
 
     join(validForm);//join에 데이터를 보내줄것이다.
 
@@ -37,6 +61,9 @@ export default function Join(){
     //     "Content-Type":"application/json",
     //   }
     // }).then(()=>{setSubmitting(false)});
+  }
+  let daumHandler = (data:any) => {
+    console.log(data);
   }
 
   console.log(loading, data, error);
@@ -132,11 +159,9 @@ export default function Join(){
 
           <div className='mt-9'>
             <label htmlFor="">주소<span className='text-red-500'>*</span></label>
-            <div className='flex items-center space-x-2'>
-              <input type="text" className='w-2/3 h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' name="address" />
-              <button type="button" className='w-1/3 h-10 rounded-md bg-zinc-600 mt-2 px-3 outline-none text-white'>우편번호 검색</button>
+            <div id='popupDom'>
+              <PopupDom name="address" register={register('address')}/>
             </div>
-            <input type="text" className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' name="address_more" placeholder='상세주소 입력' />
           </div>
 
           <div className='mt-9'>
