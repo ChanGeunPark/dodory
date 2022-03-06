@@ -28,7 +28,7 @@ const Home: NextPage = () => {
           </video>
           <div className='container mx-auto h-full flex items-center relative'>
             <div>
-              <h2 className='banner-sub-title text-3xl text-white'>Wellcome to dodore</h2>
+              <h2 className='banner-title text-3xl text-white'>Wellcome to dodore</h2>
               <h1 className='text-3xl font-bold mb-8 text-white'>인테리어와 어울리는 <br className="sm:hidden" />나만의 다육이!</h1>
               <p className='leading-8 text-white'>
                 너희는 언제나 정성으로 보살핀 사랑이 가득한<br />
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
               }}
               navigation={true}
               modules={[Pagination, Navigation]}
-              className="mySwiper"
+              className="mySwiper1"
             >
               <SwiperSlide>
                 <div className='h-96 overflow-hidden rounded-xl relative group'>
@@ -550,10 +550,15 @@ const Home: NextPage = () => {
 
 
       </main>
-    <style jsx>{`
-      .banner-sub-title{
-        font-family: 'Oooh Baby', cursive;
+    <style>{`
+      .banner-title{
+        font-family: Oooh Baby;
       }
+      .mySwiper{padding-bottom:40px}
+      .swiper-button-prev{color:#fff}
+      .swiper-button-next{color:#fff}
+
+      .mySwiper .ation-bullet-active{color:#fff}
     `}</style>
 
     </div>

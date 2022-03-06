@@ -2,12 +2,10 @@ import { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import { useForm } from 'react-hook-form';
 
-
 interface PopupForm{
   name:string,
   [key:string]:any;
 }
-
 
 export default function PopupDom({name,register}:PopupForm){
 
@@ -22,7 +20,6 @@ export default function PopupDom({name,register}:PopupForm){
   const closePostCode = () => {
     return setIsPopupOpen(false);
   }
-
 
   const handlePostCode = (data:any) => {
     let fullAddress = data.address;
@@ -43,7 +40,6 @@ export default function PopupDom({name,register}:PopupForm){
     setAddresss(fullAddress);
     
     closePostCode();
-
   }
 
   return (

@@ -42,7 +42,7 @@ export default function Navbar(){
             <ul className='flex space-x-8 font-medium'>
               <li className={cls(
                 ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
-              )}>다육이</li>
+              )}> <Link href="/items"><a>다육이</a></Link></li>
               <li className={cls(
                 ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
               )}>이벤트</li>
