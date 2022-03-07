@@ -102,7 +102,7 @@ export default function Items(){
         </section>
         
       </article>
-
     </div>
   )
 }
+//강의 23

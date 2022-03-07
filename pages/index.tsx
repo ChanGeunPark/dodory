@@ -97,13 +97,16 @@ const Home: NextPage = () => {
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                   </svg>
                   <img src="/index/succulent1.png" alt="succulent img" className='w-full h-full object-cover transition-all group-hover:blur-lg duration-200'/>
-                  <div className='absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500'>
-                    <div className='text-center'>
-                      <h2 className='text-white text-lg mb-3'>블루베리 다육이</h2>
-                      <p className='text-white text-sm'>블루베리처럼 둥글궁글한<br />나만의 귀여운 다육이</p>
-                      <h3 className='text-lg font-bold text-white mt-3'>30,000<span className='text-sm text-white font-normal'>원</span></h3>
-                    </div>
-                  </div>
+                  
+                  <Link href="/items/123">
+                    <a className='absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500'>
+                      <div className='text-center'>
+                        <h2 className='text-white text-lg mb-3'>블루베리 다육이</h2>
+                        <p className='text-white text-sm'>블루베리처럼 둥글궁글한<br />나만의 귀여운 다육이</p>
+                        <h3 className='text-lg font-bold text-white mt-3'>30,000<span className='text-sm text-white font-normal'>원</span></h3>
+                      </div>
+                    </a>
+                  </Link>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -121,13 +124,15 @@ const Home: NextPage = () => {
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                   </svg>
                   <img src="/index/succulent2.png" alt="succulent img" className='w-full h-full object-cover transition-all group-hover:blur-lg duration-200'/>
-                  <div className='absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500'>
-                    <div className='text-center'>
-                      <h2 className='text-white text-lg mb-3'>블루베리 다육이</h2>
-                      <p className='text-white text-sm'>블루베리처럼 둥글궁글한<br />나만의 귀여운 다육이</p>
-                      <h3 className='text-lg font-bold text-white mt-3'>30,000<span className='text-sm text-white font-normal'>원</span></h3>
-                    </div>
-                  </div>
+                  <Link href="/items/123">
+                    <a className='absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500'>
+                      <div className='text-center'>
+                        <h2 className='text-white text-lg mb-3'>블루베리 다육이</h2>
+                        <p className='text-white text-sm'>블루베리처럼 둥글궁글한<br />나만의 귀여운 다육이</p>
+                        <h3 className='text-lg font-bold text-white mt-3'>30,000<span className='text-sm text-white font-normal'>원</span></h3>
+                      </div>
+                    </a>
+                  </Link>
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -145,13 +150,15 @@ const Home: NextPage = () => {
                           d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                   </svg>
                   <img src="/index/succulent3.png" alt="succulent img" className='w-full h-full object-cover transition-all group-hover:blur-lg duration-200'/>
-                  <div className='absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500'>
-                    <div className='text-center'>
-                      <h2 className='text-white text-lg mb-3'>블루베리 다육이</h2>
-                      <p className='text-white text-sm'>블루베리처럼 둥글궁글한<br />나만의 귀여운 다육이</p>
-                      <h3 className='text-lg font-bold text-white mt-3'>30,000<span className='text-sm text-white font-normal'>원</span></h3>
-                    </div>
-                  </div>
+                  <Link href="/items/123">
+                    <a className='absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500'>
+                      <div className='text-center'>
+                        <h2 className='text-white text-lg mb-3'>블루베리 다육이</h2>
+                        <p className='text-white text-sm'>블루베리처럼 둥글궁글한<br />나만의 귀여운 다육이</p>
+                        <h3 className='text-lg font-bold text-white mt-3'>30,000<span className='text-sm text-white font-normal'>원</span></h3>
+                      </div>
+                    </a>
+                  </Link>
                 </div>
               </SwiperSlide>
               <SwiperSlide>

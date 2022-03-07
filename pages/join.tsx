@@ -32,17 +32,14 @@ console.log(useRef);
   const [join, {loading, data, error}] = useMutation("/api/users/join");
   //array의 첫번째 item은 우리가 호출할 수 있는 function이 될것이다. 그 function이 백엔드로 POST fetch를 할 것이다. 그걸 뮤테이션이라 부른다.
   //두번째 어레이는 어떤일이 일어나는지 보여주고싶다.
-
-  const [submitting, setSubmitting] = useState(false);
-
   const {register, watch, reset, formState:{ errors }, handleSubmit} = useForm<joinForm>();
 
-
-
-  const phone = register('phone', {value : "asdfasd"});//핸드폰
-
+  const [submitting, setSubmitting] = useState(false);
   const [isPopupOpen, setIsPopupOpen ] = useState(false);//팝업
   const [addresss, setAddresss] = useState("");//주소
+  const [phoneCombination, setPhoneCombination] = useState("");
+  const [num1,setNum1] = useState();
+  
 
 
   const openPostCode = () =>{
@@ -72,21 +69,21 @@ console.log(useRef);
     setAddresss(fullAddress);
     
     closePostCode();
-  }//duam 주소
+  };//duam 주소
 
 
-
+  const phone = register('phone', {value : "asdfasd"});//핸드폰
 
 
   const onValid = (validForm:joinForm) => {
 
     console.log(validForm);
 
-    join(validForm);//join에 데이터를 보내줄것이다.
-  }
+    //join(validForm);//join에 데이터를 보내줄것이다.
+  };
   let daumHandler = (data:any) => {
     console.log(data);
-  }
+  };
 
   console.log(loading, data, error);
   return(
