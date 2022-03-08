@@ -17,6 +17,7 @@ interface joinForm{
   name:string,
   email:string,
   errors:string,
+  [key:string]:any,
 }
 
 
@@ -27,7 +28,6 @@ interface joinForm{
 export default function Join(){
 
 
-console.log(useRef);
 
   const [join, {loading, data, error}] = useMutation("/api/users/join");
   //array의 첫번째 item은 우리가 호출할 수 있는 function이 될것이다. 그 function이 백엔드로 POST fetch를 할 것이다. 그걸 뮤테이션이라 부른다.
@@ -39,6 +39,8 @@ console.log(useRef);
   const [addresss, setAddresss] = useState("");//주소
   const [phoneCombination, setPhoneCombination] = useState("");
   const [num1,setNum1] = useState();
+  const [num2,setNum2] = useState();
+  const [num3,setNum3] = useState();
   
 
 
@@ -74,18 +76,33 @@ console.log(useRef);
 
   const phone = register('phone', {value : "asdfasd"});//핸드폰
 
+  const phones = useRef(null);
+  console.log(phones.current);
 
   const onValid = (validForm:joinForm) => {
-
+    
     console.log(validForm);
 
     //join(validForm);//join에 데이터를 보내줄것이다.
   };
+
+  const onInValid = (validForm:joinForm)=>{
+    console.log(errors);
+  }
+
+
   let daumHandler = (data:any) => {
     console.log(data);
   };
 
-  console.log(loading, data, error);
+
+
+  const password = useRef<HTMLInputElement | any>();
+  password.current = watch("password");
+
+
+
+  //console.log(loading, data, error);
   return(
     <div className='bg-gray-100 py-16'>
       <article className='w-[650px] max-w-full mx-auto'>
@@ -94,7 +111,7 @@ console.log(useRef);
           <p className='mt-3 text-zinc-500'>간편하게 SNS등으로 신규 가입하세요!</p>
         </div>
 
-        <form onSubmit={handleSubmit(onValid)} className='bg-white p-10'>
+        <form onSubmit={handleSubmit(onValid,onInValid)} className='bg-white p-10'>
           <div>
             <Input
               label='아이디'
@@ -121,7 +138,7 @@ console.log(useRef);
                   minLength:{
                     value:8,
                     message:"비밀번호는 8글자이상 사용해주세요"
-                  }
+                  },
                 })}
                 name="password"
                 important={true}
@@ -133,35 +150,42 @@ console.log(useRef);
           <div className='mt-9'>
           <Input
                 label='비밀번호 확인'
+                register={register("password_confire",{
+                  required:"비밀번호 확인해주세요",
+                  validate: (value) => value === password.current || "비밀번호와 일치하지 않습니다",
+                })}
                 name="password_check"
                 important={true}
                 type="password"
           />
+          <p className='mt-1 text-red-500'>{errors.password_confire?.message}</p>
+          
           </div>
 
           <div className='mt-9'>
           <Input
                 label='이름'
                 name="name"
-                register={register("name")}
+                register={register("name",{required:"이름은 필수입니다."})}
                 important={true}
                 type="text"
                 placeholder="이름을 입력해주세요"
           />
+          <p className='mt-1 text-red-500'>{errors.name?.message}</p>
           </div>
 
           <div className='mt-9'>
             <label htmlFor="">휴대전화<span className='text-red-500'>*</span></label>
             <div className='flex items-center'>
-              <select className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' id="num1">
+              <select className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' id="num1" value={num1}>
                 {tels.map((x,i)=>(
                   <option key={i} id={x} value={x}>{x}</option>
                 ))}
               </select>
               <span className='px-3 mt-2'>-</span>
-              <input type="text" className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' id="num2" />
+              <input type="text" ref={phones} className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' id="num2" onChange={setNum2} value={num2} />
               <span className='px-3 mt-2'>-</span>
-              <input type="text" className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' id="num3"/>
+              <input type="text" className='w-full h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400' id="num3" value={num2} />
             </div>
           </div>
 

@@ -11,9 +11,12 @@ export default function Navbar(){
   const handleFollow = () => {
     setScrollY(window.pageYOffset); // window 스크롤 값을 ScrollY에 저장
   }
+
+
   // useEffect(() => {
   //   console.log("ScrollY is ", ScrollY); // ScrollY가 변화할때마다 값을 콘솔에 출력
   // }, [ScrollY])
+
 
   useEffect(() => {
     const watch = () => {
@@ -27,43 +30,33 @@ export default function Navbar(){
 
 
   return(
-    
     <div className={cls(
-      ScrollY > 1 && router.pathname == "/" ? "bg-white shadow-md" : "bg-transparent",
-      router.pathname === "/" ? "dodory-top px-4 fixed top-0 z-40 left-0 w-full transition-all" : "dodory-top bg-white px-4 border-b border-zinc-100"
+      "dodory-top bg-white px-4 border-b border-zinc-100 sticky top-0 z-50",
+      ScrollY > 1 ? "shadow-md" : ""
     )}>
       <header className='mx-auto container flex justify-between items-center h-20'>
         <div className='flex items-center'>
           <h1 className={cls(
-            "text-3xl font-bold ",
-            ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900",
+            "text-3xl font-bold text-zinc-900",
           )}><Link href="/"><a> dodo:&#41;re</a></Link></h1>
           <nav className='ml-14 hidden sm:flex'>
             <ul className='flex space-x-8 font-medium'>
-              <li className={cls(
-                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
+              <li className={cls("text-zinc-900"
               )}> <Link href="/items"><a>다육이</a></Link></li>
-              <li className={cls(
-                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
-              )}>이벤트</li>
-              <li className={cls(
-                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
-              )}>소품샵</li>
-              <li className={cls(
-                ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-900"
-              )}>고객센터</li>
+              <li className={cls("text-zinc-900")}>이벤트</li>
+              <li className={cls("text-zinc-900")}>소품샵</li>
+              <li className={cls("text-zinc-900")}>고객센터</li>
             </ul>
           </nav>
         </div>
         <div className={cls(
-          "flex text-white space-x-6 border border-whitea px-6 py-2 rounded-full font-medium",
-          ScrollY > 1 ? "text-zinc-900 border-none" : ""
+          "flex text-white space-x-6 border px-6 py-2 rounded-full font-medium"
         )}>
               <Link href="/login">
-                <a className={cls(ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-600")}>로그인</a>
+                <a className={cls("text-zinc-600")}>로그인</a>
               </Link>
               <Link href="/join">
-                <a className={cls(ScrollY < 1 && router.pathname == "/" ? "text-white" : "text-zinc-600")}>회원가입</a>
+                <a className={cls("text-zinc-600")}>회원가입</a>
               </Link>
         </div>
         <div className='flex-row space-x-2 hidden'>{/*로그인 했을때 보여주기*/}
