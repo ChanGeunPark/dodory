@@ -220,7 +220,7 @@ export default function Join(){
               <div className='flex items-center space-x-2'>
                 <input
                   type="text"
-                  {...register("address")}
+                  {...register("address",{required:"주소는 필수입니다."})}
                   id="address"
                   readOnly
                   className='w-2/3 h-10 rounded-md bg-zinc-100 mt-2 px-3 outline-none focus:ring-2 focus:ring-red-400'
@@ -233,6 +233,8 @@ export default function Join(){
                 {...register("detailedAddress",{required:"상세주소를 입력해주세요"})}
                 name="detailedAddress"
                 placeholder='상세주소 입력'/>
+              <p>{errors.address ?.message}</p>
+              <p>{errors.detailedAddress ?.message}</p>
             </div>
           </div>
 

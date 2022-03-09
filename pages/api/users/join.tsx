@@ -6,6 +6,25 @@ import { NextApiRequest, NextApiResponse } from 'next';
 async function handler(
   req:NextApiRequest, res:NextApiResponse
 ){
+
+  const {user_id, password, name, phone, email, address, detailedAddress, termsOfUse, privacy, marketing} = req.body;
+  const phoneNum = parseInt(phone);
+  const user = await client.user.create({
+    data:{
+      user_id,
+      password,
+      name,
+      phone:phoneNum,
+      email,
+      address,
+      detailedAddress,
+      termsOfUse,
+      privacy,
+      marketing,
+    }
+  })
+
+
   // const {name} = req.body;
   // let user;
 
