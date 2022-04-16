@@ -1,14 +1,14 @@
-import Navbar from '@components/Navbar';
-import Footer from '@components/Footer';
+import Navbar from "@components/Navbar";
+import Footer from "@components/Footer";
+import useUser from "@libs/client/useUser";
 
-export default function Layout({children}){
-  return(
+export default function Layout({ children }) {
+  const { user } = useUser();
+  return (
     <>
-      <Navbar/>
-      <div>
-        {children}
-      </div>
-      <Footer/>
+      <Navbar user={user} />
+      <div>{children}</div>
+      <Footer />
     </>
-  )
+  );
 }
