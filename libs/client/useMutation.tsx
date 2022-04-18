@@ -24,6 +24,7 @@ export default function useMutation<T = any>(
   });
 
   function mutation(data: any) {
+    console.log(url);
     setState((prev) => ({ ...prev, loading: true }));
     fetch(url, {
       method: "POST",

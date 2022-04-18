@@ -13,10 +13,11 @@ export default function useUser() {
   /*
   const router = useRouter();
   useEffect(() => {
-    if (data && data.ok) {
+    if (data && !data.ok) {
       router.push("/join");
     }
   }, [data, router]);
-*/
+  */
+
   return { user: data?.profile, isLoading: !data && !error };
 }

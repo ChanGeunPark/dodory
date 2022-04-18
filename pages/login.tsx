@@ -1,6 +1,8 @@
 import Input from "@components/Input";
 import useMutation from "@libs/client/useMutation";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useSWR from "swr";
 
@@ -13,9 +15,18 @@ export default function Login() {
   const { register, watch, handleSubmit } = useForm<LoginUser>();
   const [user, { data, loading }] = useMutation("/api/users/confirm");
 
+  const router = useRouter();
+
   const onvalid = (data: LoginUser) => {
     user(data);
   };
+
+  useEffect(() => {
+    if (data?.ok) {
+      router.push("/");
+    }
+  }, [data, router]);
+
   return (
     <div>
       <div className="bg-[#F9F9F9] min-h-[700px] flex justify-center items-center flex-col border">

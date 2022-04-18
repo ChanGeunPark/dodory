@@ -3,38 +3,26 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { cls } from "@libs/client/utils";
 import { User } from "@prisma/client";
+import useMutation from "@libs/client/useMutation";
+import useSWR, { useSWRConfig } from "swr";
 
 interface UserSesstion {
   user: User;
 }
 
-export default function Navbar(user?: UserSesstion) {
-  console.log(user?.user);
+export default function Navbar(session?: UserSesstion) {
+  console.log(session?.user);
   const router = useRouter();
-  const [ScrollY, setScrollY] = useState(0);
-  const handleFollow = () => {
-    setScrollY(window.pageYOffset); // window 스크롤 값을 ScrollY에 저장
+  const [logoutSession] = useMutation("/api/users/logout");
+
+  const logout = async () => {
+    await logoutSession({}); //세션에 빈배열을 전송하여 세션을 초기화시킬거다
   };
-
-  // useEffect(() => {
-  //   console.log("ScrollY is ", ScrollY); // ScrollY가 변화할때마다 값을 콘솔에 출력
-  // }, [ScrollY])
-
-  useEffect(() => {
-    const watch = () => {
-      window.addEventListener("scroll", handleFollow);
-    };
-    watch(); // addEventListener 함수를 실행
-    return () => {
-      window.removeEventListener("scroll", handleFollow); // addEventListener 함수를 삭제
-    };
-  });
 
   return (
     <div
       className={cls(
-        "dodory-top bg-white px-4 border-b border-zinc-100 sticky top-0 z-50",
-        ScrollY > 1 ? "shadow-md" : ""
+        "dodory-top bg-white px-4 border-b border-zinc-100 sticky top-0 z-50 shadow-md"
       )}
     >
       <header className="mx-auto container flex justify-between items-center h-20">
@@ -47,7 +35,6 @@ export default function Navbar(user?: UserSesstion) {
           <nav className="ml-14 hidden sm:flex">
             <ul className="flex space-x-8 font-medium">
               <li className={cls("text-zinc-900")}>
-                {" "}
                 <Link href="/items">
                   <a>다육이</a>
                 </Link>
@@ -60,23 +47,37 @@ export default function Navbar(user?: UserSesstion) {
         </div>
         <div
           className={cls(
-            "flex text-white space-x-6 border px-6 py-2 rounded-full font-medium"
+            "flex space-x-6 border px-6 py-2 rounded-full font-medium"
           )}
         >
-          <Link href="/login">
-            <a className={cls("text-zinc-600")}>로그인</a>
-          </Link>
-          <Link href="/join">
-            <a className={cls("text-zinc-600")}>회원가입</a>
-          </Link>
+          {session?.user ? (
+            <>
+              <Link href="/login">
+                <a className={cls("text-zinc-600")}>MY SHOP</a>
+              </Link>
+              <button
+                onClick={logout}
+                type="button"
+                className={cls("text-zinc-600")}
+              >
+                로그아웃
+              </button>
+            </>
+          ) : (
+            <>
+              <Link href="/login">
+                <a className={cls("text-zinc-600")}>로그인</a>
+              </Link>
+              <Link href="/join">
+                <a className={cls("text-zinc-600")}>회원가입</a>
+              </Link>
+            </>
+          )}
         </div>
         <div className="flex-row space-x-2 hidden">
           {/*로그인 했을때 보여주기*/}
           <svg
-            className={cls(
-              "w-7 h-7",
-              ScrollY > 1 ? "stroke-zinc-900" : "stroke-white"
-            )}
+            className={cls("w-7 h-7 stroke-zinc-90")}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -91,10 +92,7 @@ export default function Navbar(user?: UserSesstion) {
           </svg>
 
           <svg
-            className={cls(
-              "w-7 h-7",
-              ScrollY > 1 ? "stroke-zinc-900" : "stroke-white"
-            )}
+            className={cls("w-7 h-7 stroke-zinc-900")}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

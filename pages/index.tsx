@@ -10,6 +10,7 @@ import Footer from "@components/Footer";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import useUser from "@libs/client/useUser";
 
 const Home: NextPage = () => {
   return (
