@@ -24,8 +24,9 @@ export default function Login() {
   useEffect(() => {
     if (data?.ok) {
       router.push("/");
+      router.reload();
     }
-  }, [data, router]);
+  }, [onvalid]);
 
   return (
     <div>

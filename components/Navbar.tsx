@@ -11,12 +11,12 @@ interface UserSesstion {
 }
 
 export default function Navbar(session?: UserSesstion) {
-  console.log(session?.user);
   const router = useRouter();
   const [logoutSession] = useMutation("/api/users/logout");
 
   const logout = async () => {
     await logoutSession({}); //세션에 빈배열을 전송하여 세션을 초기화시킬거다
+    router.reload();
   };
 
   return (
@@ -29,7 +29,7 @@ export default function Navbar(session?: UserSesstion) {
         <div className="flex items-center">
           <h1 className={cls("text-3xl font-bold text-zinc-900")}>
             <Link href="/">
-              <a> dodo:&#41;re</a>
+              <a> dodo:&#41;ry</a>
             </Link>
           </h1>
           <nav className="ml-14 hidden sm:flex">

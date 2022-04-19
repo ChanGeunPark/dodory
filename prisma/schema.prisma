@@ -25,6 +25,24 @@ model User {
   termsOfUse      Boolean
   privacy         Boolean
   marketing       Boolean
+  userLevel       Int   @default(1)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  products        Product[]
+}
+
+
+model Product {
+  id              Int @id @default(autoincrement())
+  name            String
+  price           Float
+  deliveryCharge  Float //배송비
+  popularity      Boolean //인기여부
+  recommendation  Boolean //추천여부
+  description     String @db.MediumText //상품설명
+  user            User  @relation(fields:[userId], references: [id], onDelete: Cascade)
+  userId          Int
+  image           String
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
