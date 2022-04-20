@@ -52,7 +52,7 @@ export default function Navbar(session?: UserSesstion) {
         >
           {session?.user ? (
             <>
-              <Link href="/login">
+              <Link href="/profile">
                 <a className={cls("text-zinc-600")}>MY SHOP</a>
               </Link>
               <button
