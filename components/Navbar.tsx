@@ -7,7 +7,7 @@ import useMutation from "@libs/client/useMutation";
 import useSWR, { useSWRConfig } from "swr";
 
 interface UserSesstion {
-  user: User;
+  user?: User;
 }
 
 export default function Navbar(session?: UserSesstion) {

@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           fetch(url).then((response) => response.json()),
       }}
     >
-      <Layout>
+      <div>
         <Component {...pageProps} />
-      </Layout>
+      </div>
       <Script src="" strategy="lazyOnload" onLoad={() => {}} />
     </SWRConfig>
   );

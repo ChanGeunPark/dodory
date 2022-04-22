@@ -11,10 +11,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import useUser from "@libs/client/useUser";
+import Layout from "@components/Layout";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <Layout>
       <div className="w-full absolute z-20 h-96 bg-gradient-to-b from-gray-800 to-transparent mix-blend-multiply">
         <span className="hidden">shadow</span>
       </div>
@@ -756,7 +757,7 @@ const Home: NextPage = () => {
 
       .mySwiper .ation-bullet-active{color:#fff}
     `}</style>
-    </div>
+    </Layout>
   );
 };
 
