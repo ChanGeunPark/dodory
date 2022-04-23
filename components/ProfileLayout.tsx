@@ -25,7 +25,7 @@ export default function ProfileLayout({ children, menuName }: ProfileChild) {
         </h1>
         <ul className="w-full flex flex-col">
           <li className="w-full mt-6">
-            <Link href="/profile">
+            <Link href={`/profile`}>
               <a
                 className={cls(
                   "flex items-center px-5 py-4 transition-all",
@@ -111,7 +111,7 @@ export default function ProfileLayout({ children, menuName }: ProfileChild) {
             </a>
           </li>
           <li>
-            <Link href="/profile/myProduct">
+            <Link href={`/profile/myProduct/${user?.id}`}>
               <a
                 className={cls(
                   "flex items-center px-5 py-4 transition-all",
@@ -284,7 +284,7 @@ export default function ProfileLayout({ children, menuName }: ProfileChild) {
                 <span className="w-[100px] text-center text-zinc-500 h-20 flex items-center justify-center relative before:contents-[''] before:absolute before:bottom-0 before:left-0 before:w-full">
                   톡톡
                 </span>
-                <Link href="/profile/myProduct">
+                <Link href={`/profile/myProduct/${user?.id}`}>
                   <a
                     className={cls(
                       "w-[100px] text-center text-zinc-500 h-20 flex items-center justify-center relative before:contents-[''] before:absolute before:bottom-0 before:left-0 before:w-full",

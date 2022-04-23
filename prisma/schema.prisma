@@ -37,12 +37,18 @@ model Product {
   name            String
   price           Float
   deliveryCharge  Float //배송비
-  popularity      Boolean //인기여부
-  recommendation  Boolean //추천여부
+  popularity      Boolean @default(false)//인기여부
+  recommendation  Boolean @default(false)//추천여부
   description     String @db.MediumText //상품설명
   user            User  @relation(fields:[userId], references: [id], onDelete: Cascade)
   userId          Int
-  image           String
+  mainThumb       String
+  thumb1          String
+  thumb2          String
+  thumb3          String
+  precautions     String @db.MediumText //주의사항
+  xSize           Int
+  ySize           Int
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
