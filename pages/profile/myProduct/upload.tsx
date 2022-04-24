@@ -2,8 +2,11 @@ import Input from "@components/Input";
 import ProfileLayout from "@components/ProfileLayout";
 import TextArea from "@components/TextArea";
 import useMutation from "@libs/client/useMutation";
+import useUser from "@libs/client/useUser";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { set, useForm } from "react-hook-form";
+import Loading from "@components/Loading";
 
 interface UploadProductForm {
   name: string;
@@ -20,12 +23,20 @@ interface UploadProductForm {
 }
 
 export default function uploadProduct() {
-  const { register, watch, handleSubmit } = useForm<UploadProductForm>();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UploadProductForm>();
+  const { user } = useUser();
   const [mainThumbPriview, setMainThumbPriview] = useState("");
+  const [loadingUpload, setLoadingUpload] = useState(false);
   const [thumb1Priview, setThumb1Priview] = useState("");
   const [thumb2Priview, setThumb2Priview] = useState("");
   const [thumb3Priview, setThumb3Priview] = useState("");
   const [uploadProducts, { data, loading }] = useMutation("/api/products");
+  const router = useRouter();
 
   const mainThumbFile = watch("mainThumb");
   const thumbFile1 = watch("thumb1");
@@ -44,6 +55,7 @@ export default function uploadProduct() {
     thumb2,
     thumb3,
   }: UploadProductForm) => {
+    setLoadingUpload(true);
     if (mainThumbFile && mainThumbFile.length > 0) {
       const { id: mainThumbId, uploadURL } = await (
         await fetch("/api/files")
@@ -103,6 +115,10 @@ export default function uploadProduct() {
         xSize,
         ySize,
       });
+      setLoadingUpload(false);
+      if (!loading) {
+        router.push(`/profile/myProduct/${user?.id}`);
+      }
     }
 
     //uploadProducts(data);
@@ -141,7 +157,15 @@ export default function uploadProduct() {
       <form onSubmit={handleSubmit(onValid)}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <h3 className="mb-2">상품 이미지</h3>
+            <div className="mb-2 flex justify-between">
+              <h3>상품 이미지</h3>
+              {errors.mainThumb ? (
+                <p className="text-red-500 text-sm">
+                  {errors.mainThumb?.message}
+                </p>
+              ) : null}
+            </div>
+
             {mainThumbPriview ? (
               <img
                 src={mainThumbPriview}
@@ -164,7 +188,9 @@ export default function uploadProduct() {
                   />
                 </svg>
                 <input
-                  {...register("mainThumb")}
+                  {...register("mainThumb", {
+                    required: "상품이미지는 필수입니다",
+                  })}
                   className="hidden"
                   type="file"
                   accept="image/*"
@@ -230,14 +256,22 @@ export default function uploadProduct() {
           </div>
           <section className="space-y-3">
             <div>
-              <Input label="상품이름" name="name" register={register("name")} />
+              <Input
+                label="상품이름"
+                name="name"
+                register={register("name", {
+                  required: "상품 이름을 작성해주세요.",
+                })}
+                errorText={errors.name?.message}
+              />
             </div>
             <div>
               <Input
                 label="가격"
                 type="number"
                 name="price"
-                register={register("price")}
+                register={register("price", { required: "가격은 필수입니다." })}
+                errorText={errors.price?.message}
               />
             </div>
             <div>
@@ -253,7 +287,10 @@ export default function uploadProduct() {
               <TextArea
                 label="상품설명"
                 name="description"
-                register={register("description")}
+                register={register("description", {
+                  required: "상품설명을 작성해 주세요.",
+                })}
+                errorText={errors.description?.message}
               />
             </div>
 
@@ -302,6 +339,7 @@ export default function uploadProduct() {
         >
           상품 업로드
         </button>
+        {loadingUpload ? <Loading /> : null}
       </form>
     </ProfileLayout>
   );

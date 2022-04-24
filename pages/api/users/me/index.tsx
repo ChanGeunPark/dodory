@@ -9,7 +9,51 @@ async function handler(
 ) {
   const {
     session: { user },
+    body: {
+      address,
+      avatar,
+      detailedAddress,
+      name,
+      password,
+      phone,
+      user_id,
+      email,
+    },
   } = req;
+  if (req.method === "POST") {
+    if (avatar) {
+      await client.user.update({
+        where: {
+          id: user?.id,
+        },
+        data: {
+          address,
+          avatar,
+          detailedAddress,
+          name,
+          password,
+          phone,
+          user_id,
+          email,
+        },
+      });
+    } else {
+      await client.user.update({
+        where: {
+          id: user?.id,
+        },
+        data: {
+          address,
+          detailedAddress,
+          name,
+          password,
+          phone,
+          user_id,
+          email,
+        },
+      });
+    }
+  }
 
   if (req.method === "GET") {
     const profile = await client.user.findUnique({

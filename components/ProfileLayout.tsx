@@ -1,5 +1,6 @@
 import useUser from "@libs/client/useUser";
 import { cls } from "@libs/client/utils";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -159,23 +160,33 @@ export default function ProfileLayout({ children, menuName }: ProfileChild) {
             </a>
           </li>
           <li>
-            <a className="flex items-center px-5 py-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
+            <Link href="/profile/edit">
+              <a
+                className={cls(
+                  "flex items-center px-5 py-4",
+                  menuName == "edit" ? "text-blue-500 bg-gray-100" : ""
+                )}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-              나의정보 변경
-            </a>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className={cls(
+                    "h-5 w-5 mr-1",
+                    menuName == "edit" ? "stroke-blue-500" : ""
+                  )}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+                나의정보 변경
+              </a>
+            </Link>
           </li>
         </ul>
       </nav>
@@ -184,7 +195,14 @@ export default function ProfileLayout({ children, menuName }: ProfileChild) {
         <div className="mt-10 w-[1280px] max-w-full mx-auto">
           <div className="shadow-lg rounded-lg">
             <section className="w-full h-[300px] bg-gray-300 rounded-t-lg relative">
-              <div className="bg-[rgba(0,0,0,0.3)] absolute bottom-0 left-0 h-20 z-10 w-full flex items-center justify-center space-x-10">
+              <Image
+                src="/index/subBanner2.jpg"
+                layout="fill"
+                className="object-cover"
+                priority
+              />
+
+              <div className="bg-[rgba(0,0,0,0.5)] absolute bottom-0 left-0 h-20 z-10 w-full flex items-center justify-center space-x-10">
                 <span className="text-white flex items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +275,30 @@ export default function ProfileLayout({ children, menuName }: ProfileChild) {
             </section>
             <section className="w-full bg-white h-20 rounded-b-lg flex justify-between items-center px-3">
               <div className="flex items-center w-1/3">
-                <div className="bg-gray-500 w-14 h-14 rounded-full"></div>
+                <div className="bg-gray-500 w-14 h-14 rounded-full flex justify-center items-center relative overflow-hidden">
+                  {user?.avatar ? (
+                    <Image
+                      src={`https://imagedelivery.net/anvL-_ABM0Z5KQo2YmJX4g/${user.avatar}/avatar`}
+                      layout="fill"
+                      quality="100"
+                    />
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 stroke-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                  )}
+                </div>
                 <div className="pl-5">
                   <span className="font-semibold">{user?.name}</span>
                   <br />

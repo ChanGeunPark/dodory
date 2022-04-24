@@ -4,12 +4,14 @@ interface TextAreaProps {
   label?: string;
   name?: string;
   register: UseFormRegisterReturn;
+  errorText?: string;
   [key: string]: any;
 }
 
 export default function TextArea({
   label,
   name,
+  errorText,
   register,
   ...rest
 }: TextAreaProps) {
@@ -27,6 +29,9 @@ export default function TextArea({
         rows={4}
         {...rest}
       />
+      {errorText ? (
+        <p className="text-sm mt-2 text-red-500">{errorText}</p>
+      ) : null}
     </div>
   );
 }

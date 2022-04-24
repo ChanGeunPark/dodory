@@ -4,6 +4,7 @@ interface InputProps {
   type?: string;
   important?: boolean;
   moreText?: string;
+  errorText?: string;
   [key: string]: any;
 }
 
@@ -14,6 +15,7 @@ export default function Input({
   name,
   type = "text",
   moreText,
+  errorText,
   ...rest
 }: InputProps) {
   return (
@@ -31,6 +33,9 @@ export default function Input({
       />
       {moreText ? (
         <p className="text-sm mt-2 text-zinc-600">{moreText}</p>
+      ) : null}
+      {errorText ? (
+        <p className="text-sm mt-2 text-red-500">{errorText}</p>
       ) : null}
     </div>
   );

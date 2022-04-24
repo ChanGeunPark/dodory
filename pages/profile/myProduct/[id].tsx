@@ -9,13 +9,17 @@ import Image from "next/image";
 interface productsResponse {
   ok: boolean;
   products: Product[];
+  productCount: number;
 }
 
-const myProduct: NextPage<{ products: Product[] }> = ({ products }) => {
+const myProduct: NextPage<{ products: Product[]; productCount: number }> = ({
+  products,
+  productCount,
+}) => {
   return (
     <ProfileLayout menuName={"myProduct"}>
       <div className="flex justify-between items-center">
-        <h3 className="text-zinc-500">상품개수 8개</h3>
+        <h3 className="text-zinc-500">상품개수 {productCount}개</h3>
         <Link href="/profile/myProduct/upload">
           <a className="bg-blue-500 text-white px-6 py-3 rounded-md flex">
             <svg
@@ -57,15 +61,19 @@ const myProduct: NextPage<{ products: Product[] }> = ({ products }) => {
       ) : null}
       <section className="mt-3 grid grid-cols-4 gap-8">
         {products?.map((products) => (
-          <div key={products.id} className="w-full border">
-            <div className="h-48 bg-gray-500 rounded-t-lg relative overflow-hidden">
+          <div
+            key={products.id}
+            className="w-full border transition-all shadow-lg group overflow-hidden"
+          >
+            <div className="h-48 bg-gray-500 rounded-t-lg relative overflow-hidden group-hover:scale-110 transition-all">
               <Image
                 layout="fill"
                 src={`https://imagedelivery.net/anvL-_ABM0Z5KQo2YmJX4g/${products.mainThumb}/public`}
                 alt="메인 섬네일"
+                priority
               />
             </div>
-            <div className="p-3 rounded-b-lg">
+            <div className="p-3 rounded-b-lg bg-white">
               <h3>{products.name}</h3>
               <span>{products.price}원</span>
             </div>
@@ -82,10 +90,18 @@ export async function getServerSideProps(context: any) {
       userId: +context.query?.id,
     },
   });
+
+  const productCount = await client.product.count({
+    where: {
+      userId: +context.query?.id,
+    },
+  });
+
   return {
     props: {
       ok: true,
       products: JSON.parse(JSON.stringify(products)),
+      productCount,
     },
   };
 }

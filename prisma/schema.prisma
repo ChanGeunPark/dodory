@@ -18,6 +18,7 @@ model User {
   user_id         String   @unique
   password        String
   phone           Int?     @unique
+  avatar          String   @default("")
   name            String
   email           String?  @unique
   address         String?
