@@ -77,6 +77,7 @@ const EditProfile: NextPage = () => {
 
   const [avatarImg, setAvatarImg] = useState("");
   const avatar = watch("avatar");
+  password.current = watch("password");
   useEffect(() => {
     if (avatar && avatar.length > 0) {
       const file = avatar[0];
@@ -220,9 +221,7 @@ const EditProfile: NextPage = () => {
             register={register("password_confire", {
               required: "비밀번호 확인해주세요",
               validate: (value) =>
-                value === password.current
-                  ? "비밀번호와 일치하지 않습니다"
-                  : "",
+                value === password.current || "비밀번호와 일치하지 않습니다",
             })}
             name="password_check"
             important={true}

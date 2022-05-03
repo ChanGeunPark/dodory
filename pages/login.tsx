@@ -1,4 +1,5 @@
 import Input from "@components/Input";
+import Layout from "@components/Layout";
 import useMutation from "@libs/client/useMutation";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -29,7 +30,7 @@ export default function Login() {
   }, [onvalid]);
 
   return (
-    <div>
+    <Layout>
       <div className="bg-[#F9F9F9] min-h-[700px] flex justify-center items-center flex-col border">
         <div className="pb-16">
           <h1 className="font-semibold text-2xl text-center">
@@ -75,6 +76,6 @@ export default function Login() {
           </Link>
         </form>
       </div>
-    </div>
+    </Layout>
   );
 }
