@@ -14,6 +14,9 @@ export default function Items() {
 
   return (
     <Layout>
+      <div>
+        <img src="" alt="" />
+      </div>
       <div className="py-24">
         <article className="container mx-auto">
           <div className="mb-24">

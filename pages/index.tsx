@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation, Pagination } from "swiper";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { cls } from "@libs/client/utils";
 import Navbar from "@components/Navbar";
 import Footer from "@components/Footer";
@@ -12,752 +12,226 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import useUser from "@libs/client/useUser";
 import Layout from "@components/Layout";
+import Image from "next/image";
+import CustomCursor from "@components/CustomCursor";
+import CustomCursorManager from "@components/CustomCursor/context/manager";
+import CustomCursorContext from "@components/CustomCursor/context/CustomCursorContext";
 
 const Home: NextPage = () => {
+  const { setType } = useContext(CustomCursorContext); //costomCursorContext를 가져올거다
+
   return (
-    <Layout>
-      <div className="w-full absolute z-20 h-96 bg-gradient-to-b from-gray-800 to-transparent mix-blend-multiply">
-        <span className="hidden">shadow</span>
-      </div>
+    <CustomCursorManager>
+      <Layout>
+        <CustomCursor />
+        <main>
+          <article className="banner h-screen w-full overflow-hidden relative bg-[#353535]">
+            <div className="absolute left-0 w-full top-36 flex flex-col justify-center items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                width="70.211"
+                height="70.211"
+                viewBox="0 0 70.211 70.211"
+              >
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect
+                      id="사각형_202"
+                      data-name="사각형 202"
+                      width="70.211"
+                      height="70.211"
+                      fill="#fff"
+                    />
+                  </clipPath>
+                </defs>
+                <g
+                  id="그룹_160"
+                  data-name="그룹 160"
+                  transform="translate(0 0)"
+                >
+                  <g
+                    id="그룹_159"
+                    data-name="그룹 159"
+                    transform="translate(0 0)"
+                    clipPath="url(#clip-path)"
+                  >
+                    <path
+                      id="패스_1737"
+                      data-name="패스 1737"
+                      d="M40.823,20.644a3.876,3.876,0,1,1-3.879-3.877,3.878,3.878,0,0,1,3.879,3.877"
+                      transform="translate(29.388 14.9)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1738"
+                      data-name="패스 1738"
+                      d="M0,20.644a3.876,3.876,0,1,0,3.876-3.877A3.875,3.875,0,0,0,0,20.644"
+                      transform="translate(0 14.9)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1739"
+                      data-name="패스 1739"
+                      d="M20.177,40.823a3.876,3.876,0,1,1,3.877-3.876,3.875,3.875,0,0,1-3.877,3.876"
+                      transform="translate(14.488 29.388)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1740"
+                      data-name="패스 1740"
+                      d="M20.178,0a3.876,3.876,0,1,0,3.876,3.879A3.877,3.877,0,0,0,20.178,0"
+                      transform="translate(14.487 0)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1741"
+                      data-name="패스 1741"
+                      d="M28.622,3.254a2.559,2.559,0,1,0,2.557,2.557,2.556,2.556,0,0,0-2.557-2.557"
+                      transform="translate(23.159 2.892)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1742"
+                      data-name="패스 1742"
+                      d="M34.505,9.063a2.559,2.559,0,1,0,2.559,2.557,2.558,2.558,0,0,0-2.559-2.557"
+                      transform="translate(28.389 8.054)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1743"
+                      data-name="패스 1743"
+                      d="M34.505,25.712a2.56,2.56,0,1,0,2.559,2.559,2.559,2.559,0,0,0-2.559-2.559"
+                      transform="translate(28.389 22.849)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1744"
+                      data-name="패스 1744"
+                      d="M28.62,31.6a2.559,2.559,0,1,0,2.557,2.557A2.556,2.556,0,0,0,28.62,31.6"
+                      transform="translate(23.159 28.081)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1745"
+                      data-name="패스 1745"
+                      d="M10.888,31.754a2.557,2.557,0,1,0,2.557,2.557,2.559,2.559,0,0,0-2.557-2.557"
+                      transform="translate(7.398 28.219)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1746"
+                      data-name="패스 1746"
+                      d="M4.847,25.635A2.56,2.56,0,1,0,7.406,28.2a2.562,2.562,0,0,0-2.559-2.561"
+                      transform="translate(2.03 22.781)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1747"
+                      data-name="패스 1747"
+                      d="M5,9.14A2.559,2.559,0,1,0,7.56,11.7,2.56,2.56,0,0,0,5,9.14"
+                      transform="translate(2.168 8.123)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1748"
+                      data-name="패스 1748"
+                      d="M11,3.061A2.559,2.559,0,1,0,13.558,5.62,2.559,2.559,0,0,0,11,3.061"
+                      transform="translate(7.502 2.721)"
+                      fill="#fff"
+                    />
+                    <path
+                      id="패스_1749"
+                      data-name="패스 1749"
+                      d="M20.74,26.966a4.648,4.648,0,1,1,4.644-4.648,4.653,4.653,0,0,1-4.644,4.648m0-6.463a1.815,1.815,0,1,0,1.811,1.815A1.817,1.817,0,0,0,20.74,20.5"
+                      transform="translate(14.3 15.703)"
+                      fill="#fff"
+                    />
+                    <rect
+                      id="사각형_200"
+                      data-name="사각형 200"
+                      width="3.777"
+                      height="12.865"
+                      transform="matrix(0.707, -0.707, 0.707, 0.707, 22.065, 28.685)"
+                      fill="#fff"
+                    />
+                    <rect
+                      id="사각형_201"
+                      data-name="사각형 201"
+                      width="18.218"
+                      height="3.778"
+                      transform="translate(35.981 35.104) rotate(-44.595)"
+                      fill="#fff"
+                    />
+                  </g>
+                </g>
+              </svg>
 
-      <main>
-        <article className="banner h-[800px] w-full overflow-hidden relative bg-[url(/main_banner1.png)] bg-center px-4">
-          <video
-            autoPlay
-            loop
-            muted
-            className="absolute w-full left-0 bottom-0 object-cover h-full"
-          >
-            <source src="/mp4/succulent_video.mp4" type="video/mp4" />
-          </video>
-          <div className="container mx-auto h-full flex items-center relative">
-            <div>
-              <h2 className="banner-title text-3xl text-white">
-                Wellcome to dodore
-              </h2>
-              <h1 className="text-3xl font-bold mb-8 text-white">
-                인테리어와 어울리는 <br className="sm:hidden" />
-                나만의 다육이!
+              <h1 className="text-white banner-title text-5xl mt-6">
+                Wellcome to dodory
               </h1>
-              <p className="leading-8 text-white">
-                너희는 언제나 정성으로 보살핀 사랑이 가득한
-                <br />
-                다육이와 함께하고 있습니다
-                <br />
-                저희 dodory와 남다른 하루를 시작해보세요.
+              <p className="text-white text-center mt-6">
+                저희는 언제나 정성으로 보살핀 사랑스러운 다육이와 함께하고
+                있습니다 <br />
+                저희 dodo:)ry와 남다른 하루를 시작해보세요
               </p>
             </div>
-          </div>
-        </article>
-
-        <article className="mx-auto container flex flex-col sm:flex-row mt-32 mb-32 px-3 sm:px-0">
-          <div className="w-full sm:w-1/3 mb-10 sm:mb-0">
-            <h1 className="text-2xl font-semibold">
-              도도리가 추천하는
-              <br />
-              이달의 행복!
-            </h1>
-            <p className="text-zinc-500 my-5">
-              이계절 나를 행복해해줄 당신만의 다육이에요!
-            </p>
-            <div className="flex flex-wrap w-10/12">
-              <span className="border border-zinc-400 px-5 py-2 mr-3 mb-3 rounded-full text-zinc-500 text-sm">
-                봄
-              </span>
-              <span className="border border-zinc-400 px-5 py-2 mr-3 mb-3 rounded-full text-zinc-500 text-sm">
-                새로운 시작
-              </span>
-              <span className="border border-zinc-400 px-5 py-2 mr-3 mb-3 rounded-full text-zinc-500 text-sm">
-                인테리어
-              </span>
-              <span className="border border-zinc-400 px-5 py-2 mr-3 mb-3 rounded-full text-zinc-500 text-sm">
-                시원함
-              </span>
-              <span className="border border-zinc-400 px-5 py-2 mr-3 mb-3 rounded-full text-zinc-500 text-sm">
-                소중한 시간
-              </span>
-            </div>
-            <a
-              href="#"
-              className="bg-indigo-500 text-white py-3 block w-52 text-center rounded-full hover:bg-indigo-600 transition-colors hover:text-white mt-8"
-            >
-              다육이 더알아보기
-            </a>
-          </div>
-          <div className="w-full sm:w-2/3">
-            <Swiper
-              slidesPerView={3}
-              spaceBetween={20}
-              slidesPerGroup={1}
-              loop={true}
-              loopFillGroupWithBlank={true}
-              pagination={{
-                clickable: true,
-              }}
-              breakpoints={{
-                "@0.00": {
-                  slidesPerView: 1,
-                  spaceBetween: 10,
-                },
-                "@0.75": {
-                  slidesPerView: 2,
-                  spaceBetween: 20,
-                },
-                "@1.50": {
-                  slidesPerView: 3,
-                  spaceBetween: 40,
-                },
-              }}
-              navigation={true}
-              modules={[Pagination, Navigation]}
-              className="mySwiper1"
-            >
-              <SwiperSlide>
-                <div className="h-96 overflow-hidden rounded-xl relative group">
-                  <svg
-                    className="w-6 h-6 stroke-white absolute top-3 right-3 z-20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    ></path>
-                  </svg>
+            <div className="w-full h-full flex items-end">
+              <div className="w-full">
+                <div className="w-full h-[400px] lg:h-full relative flex justify-end items-end">
                   <img
-                    src="/index/succulent1.png"
-                    alt="succulent img"
-                    className="w-full h-full object-cover transition-all group-hover:blur-lg duration-200"
+                    src="/index/main_bh.png"
+                    className="w-full h-full lg:h-auto object-cover lg:object-contain z-20"
+                    alt="메인 이미지"
                   />
-
-                  <Link href="/items/123">
-                    <a className="absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="text-center">
-                        <h2 className="text-white text-lg mb-3">
-                          블루베리 다육이
-                        </h2>
-                        <p className="text-white text-sm">
-                          블루베리처럼 둥글궁글한
-                          <br />
-                          나만의 귀여운 다육이
-                        </p>
-                        <h3 className="text-lg font-bold text-white mt-3">
-                          30,000
-                          <span className="text-sm text-white font-normal">
-                            원
-                          </span>
-                        </h3>
-                      </div>
-                    </a>
-                  </Link>
                 </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-96 overflow-hidden rounded-xl relative group">
-                  <svg
-                    className="w-6 h-6 stroke-white absolute top-3 right-3 z-20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    ></path>
-                  </svg>
-                  <img
-                    src="/index/succulent2.png"
-                    alt="succulent img"
-                    className="w-full h-full object-cover transition-all group-hover:blur-lg duration-200"
-                  />
-                  <Link href="/items/123">
-                    <a className="absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="text-center">
-                        <h2 className="text-white text-lg mb-3">
-                          블루베리 다육이
-                        </h2>
-                        <p className="text-white text-sm">
-                          블루베리처럼 둥글궁글한
-                          <br />
-                          나만의 귀여운 다육이
-                        </p>
-                        <h3 className="text-lg font-bold text-white mt-3">
-                          30,000
-                          <span className="text-sm text-white font-normal">
-                            원
-                          </span>
-                        </h3>
-                      </div>
-                    </a>
-                  </Link>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-96 overflow-hidden rounded-xl relative group">
-                  <svg
-                    className="w-6 h-6 stroke-white absolute top-3 right-3 z-20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    ></path>
-                  </svg>
-                  <img
-                    src="/index/succulent3.png"
-                    alt="succulent img"
-                    className="w-full h-full object-cover transition-all group-hover:blur-lg duration-200"
-                  />
-                  <Link href="/items/123">
-                    <a className="absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <div className="text-center">
-                        <h2 className="text-white text-lg mb-3">
-                          블루베리 다육이
-                        </h2>
-                        <p className="text-white text-sm">
-                          블루베리처럼 둥글궁글한
-                          <br />
-                          나만의 귀여운 다육이
-                        </p>
-                        <h3 className="text-lg font-bold text-white mt-3">
-                          30,000
-                          <span className="text-sm text-white font-normal">
-                            원
-                          </span>
-                        </h3>
-                      </div>
-                    </a>
-                  </Link>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-96 overflow-hidden rounded-xl relative group">
-                  <svg
-                    className="w-6 h-6 stroke-white absolute top-3 right-3 z-20"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    ></path>
-                  </svg>
-                  <img
-                    src="/index/succulent4.png"
-                    alt="succulent img"
-                    className="w-full h-full object-cover transition-all group-hover:blur-lg duration-200"
-                  />
-                  <div className="absolute left-0 top-0 w-full h-full z-10 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <div className="text-center">
-                      <h2 className="text-white text-lg mb-3">
-                        블루베리 다육이
-                      </h2>
-                      <p className="text-white text-sm">
-                        블루베리처럼 둥글궁글한
-                        <br />
-                        나만의 귀여운 다육이
-                      </p>
-                      <h3 className="text-lg font-bold text-white mt-3">
-                        30,000
-                        <span className="text-sm text-white font-normal">
-                          원
-                        </span>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </article>
-
-        <article className="py-28 bg-[#F9F9F9]">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-semibold mb-1">새로 들어온 가족</h2>
-            <p className="text-zinc-500 mb-10">
-              오래 같이할수록 색이 예뻐지는 다육이와 함께하세요
-            </p>
-            <div>
-              <Swiper
-                slidesPerView={4}
-                spaceBetween={30}
-                slidesPerGroup={1}
-                loop={true}
-                loopFillGroupWithBlank={true}
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-              >
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent1.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent2.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent3.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent4.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
+              </div>
+              <img
+                src="/index/object1.png"
+                className="absolute bottom-[5%] w-[180px] lg:w-[13%] origin-bottom object1"
+                alt="object1"
+              />
+              <img
+                src="/index/object2.png"
+                className="absolute bottom-[15%] w-[150px] lg:w-[12%] left-[23%] origin-bottom object2"
+                alt="object2"
+              />
+              <img
+                src="/index/object3.png"
+                className="absolute bottom-[10%] w-[250px] lg:w-[22%] right-0 lg:right-[15%] origin-bottom object3"
+                alt="object3"
+              />
             </div>
-          </div>
-        </article>
-
-        <article className="bg-gradient-to-r from-[#F2F6FF] to-[#E3F5F0] h-52">
-          <div className="container mx-auto h-full flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-semibold">다육이 띠배너</h2>
-              <p className="text-zinc-500 mt-1">
-                오래 같이할수록 색이 예뻐지는 다육이와 함께하세요
-              </p>
-            </div>
-            <div className="self-end">
-              <img src="/index/subbaner2.png" alt="sub banner" />
-            </div>
-          </div>
-        </article>
-
-        <article className="py-28">
-          <div className="container mx-auto">
-            <h2 className="text-2xl font-semibold">다육이와 함께할 소품</h2>
-            <p className="text-zinc-500 mb-10">
-              다육이를 더욱 돋보이게할 소품들을 준비했어요
-            </p>
-            <div>
-              <Swiper
-                slidesPerView={4}
-                spaceBetween={30}
-                slidesPerGroup={1}
-                loop={true}
-                loopFillGroupWithBlank={true}
-                pagination={{
-                  clickable: true,
-                }}
-                breakpoints={{
-                  "@0.00": {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                  },
-                  "@0.75": {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                  },
-                  "@1.50": {
-                    slidesPerView: 4,
-                    spaceBetween: 40,
-                  },
-                }}
-                navigation={true}
-                modules={[Pagination, Navigation]}
-                className="mySwiper"
-              >
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent1.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent2.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">백조 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent3.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="h-72 overflow-hidden rounded-lg relative group">
-                    <img
-                      src="/index/succulent4.png"
-                      alt="succulent img"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="flex space-x-2 bg-[rgba(255,255,255,0.8)] px-3 py-1 absolute right-3 bottom-3 rounded-full ">
-                      <svg
-                        className="w-6 h-6 stroke-red-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="pt-3">
-                    <span className="text-zinc-500">둥글둥글 귀여운 다육</span>
-                    <h3 className="text-lg font-semibold">눈꽃 다육</h3>
-                    <div className="flex justify-between items-end mt-2">
-                      <h4 className="font-bold text-2xl text-red-500">
-                        30,000<span className="text-sm text-zinc-500">원</span>
-                      </h4>
-                      <span className="text-sm text-zinc-500">
-                        남은수량 1개
-                      </span>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </div>
-        </article>
-      </main>
-      <style>{`
+          </article>
+        </main>
+        <style>{`
       .banner-title{
         font-family: Oooh Baby;
       }
-      .mySwiper{padding-bottom:40px}
-      .swiper-button-prev{color:#fff}
-      .swiper-button-next{color:#fff}
+      .object1{
+        animation:move 5s ease-in-out infinite;
+      }
+      .object2{
+        animation:move 6s ease-in-out infinite;
+      }
+      .object3{
+        animation:move 8s ease-in-out infinite;
+      }
 
-      .mySwiper .ation-bullet-active{color:#fff}
+      @keyframes move { 
+        0%{
+          transform:rotate(5deg);
+        }
+        50%{
+          transform:rotate(-5deg);
+        }
+        100%{
+          transform:rotate(5deg);
+        }
+      }
     `}</style>
-    </Layout>
+      </Layout>
+    </CustomCursorManager>
   );
 };
 

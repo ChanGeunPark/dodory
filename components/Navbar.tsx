@@ -1,17 +1,20 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { cls } from "@libs/client/utils";
 import { User } from "@prisma/client";
 import useMutation from "@libs/client/useMutation";
 import useSWR, { useSWRConfig } from "swr";
 import Image from "next/image";
+import CustomCursorContext from "./CustomCursor/context/CustomCursorContext";
 
 interface UserSesstion {
   user?: User;
 }
 
 export default function Navbar(session?: UserSesstion) {
+  const { setType } = useContext(CustomCursorContext);
+
   const router = useRouter();
   const [logoutSession] = useMutation("/api/users/logout");
 
@@ -33,7 +36,6 @@ export default function Navbar(session?: UserSesstion) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(123);
   return (
     <div
       className={cls(
@@ -44,22 +46,22 @@ export default function Navbar(session?: UserSesstion) {
         <div className="flex items-center">
           <h1 className={cls("text-3xl font-bold text-white")}>
             <Link href="/">
-              <a> dodo:&#41;ry</a>
+              <a onMouseEnter={() => setType("menu")}> dodo:&#41;ry</a>
             </Link>
           </h1>
-          <nav className="ml-14 hidden sm:flex">
-            <ul className="flex space-x-8 font-medium">
-              <li className={cls("text-white")}>
-                <Link href="/items">
-                  <a>다육이</a>
-                </Link>
-              </li>
-              <li className={cls("text-white")}>이벤트</li>
-              <li className={cls("text-white")}>소품샵</li>
-              <li className={cls("text-white")}>고객센터</li>
-            </ul>
-          </nav>
         </div>
+        <nav className="hidden sm:flex absolute left-1/2 -translate-x-1/2">
+          <ul className="flex space-x-8 font-medium">
+            <li className={cls("text-white")}>
+              <Link href="/items">
+                <a>다육이</a>
+              </Link>
+            </li>
+            <li className={cls("text-white")}>이벤트</li>
+            <li className={cls("text-white")}>소품샵</li>
+            <li className={cls("text-white")}>고객센터</li>
+          </ul>
+        </nav>
         <div className={cls("flex space-x-3 items-center")}>
           {session?.user ? (
             <>
