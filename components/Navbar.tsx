@@ -39,14 +39,14 @@ export default function Navbar(session?: UserSesstion) {
   return (
     <div
       className={cls(
-        "dodory-top bg-white px-4 bg-transparent fixed top-0 left-0 w-full z-50"
+        "bg-white px-4 bg-transparent absolute top-0 left-0 w-full z-50"
       )}
     >
       <header className="mx-auto container flex justify-between items-center h-20">
         <div className="flex items-center">
           <h1 className={cls("text-3xl font-bold text-white")}>
             <Link href="/">
-              <a onMouseEnter={() => setType("menu")}> dodo:&#41;ry</a>
+              <a> dodo:&#41;ry</a>
             </Link>
           </h1>
         </div>
@@ -54,7 +54,12 @@ export default function Navbar(session?: UserSesstion) {
           <ul className="flex space-x-8 font-medium">
             <li className={cls("text-white")}>
               <Link href="/items">
-                <a>다육이</a>
+                <a
+                  onMouseOver={() => setType("link")}
+                  onMouseOut={() => setType("default")}
+                >
+                  다육이
+                </a>
               </Link>
             </li>
             <li className={cls("text-white")}>이벤트</li>

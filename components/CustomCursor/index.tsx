@@ -78,67 +78,122 @@ export default function CustomCursor() {
 
   return (
     <>
-      <div className={`app-cursor ${type}`} ref={cursorRef}>
-        {/*CustomCursorContext 에서 type을 가져온다.*/}
-        <div className="main_cursor_background"></div>
+      <div className={`cursor-wrapper ${type}`}>
+        <div className="main-cursor " ref={cursorRef}>
+          <div className="main-cursor-background"></div>
+        </div>
+        <div className="secondary-cursor" ref={secondCursorRef}>
+          <div className="cursor-background"></div>
+        </div>
       </div>
-      <div className="secondery_cursor" ref={secondCursorRef}>
-        <div className="secondery_cursor_background"></div>
-      </div>
+
       <style>{`
 
-      .app-cursor, .secondery_cursor{
-        z-index:10000;
-        pointer-events: none;
-        transform:translate3d(0,0,0);
-        position:fixed;
-      }
-      .app-cursor{
-        mix-blend-mode:difference;
-      }
-      .app-cursor .main_cursor_background{
-        width:30px;
-        height:30px;
-        background:white;
-        border-radius:50%;
-      }
+.main-cursor,
+.secondary-cursor {
+  z-index: 10000;
 
-      .secondery_cursor{
-        width:60px;
-        height:60px;
-      }
+  pointer-events: none;
+  // overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  position: fixed;
+}
 
-      .secondery_cursor .secondery_cursor_background{
-        width:100%;
-        height:100%;
-        border-radius:50%;
-        border:1px solid black;
-      }
+.main-cursor {
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: fadeIn 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  mix-blend-mode: difference;
 
-        #cursor{
-          position:fixed;
-          z-index:99;
-          left:0;
-          top:0;
-          pointer-events:none;
-          will-change:transform;
-          mix-blend-mode:difference;
+  
+}
+.main-cursor .main-cursor-background {
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+}
+
+
+.secondary-cursor {
+  width: 60px;
+  height: 60px;
+}
+
+
+.secondary-cursor .cursor-background {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+}
+
+
+.secondary-cursor .cursor-background::before{
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fadeOut 0.75s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+.secondary-cursor .cursor-background::after{
+  content: "";
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: white;
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: fadeOut 0.75s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+
+.link .cursor-background {
+  animation: fadeOut 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+.link .main-cursor-background {
+  animation: scaleUp 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+
+
+        
+      @keyframes fadeIn{
+        from {
+          opacity:0;
         }
-        @media (hover:hover) and (pointer:fine){
-          .cursor__circle{
-            width:30px;
-            height:30px;
-            margin-top:-50%;
-            margin-right:-50%;
-            border:solid 1px #ddd;
-            border-radius:50%;
-            transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-            background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-            border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-            width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-            height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-          }
+        to {
+          opacity:1;
         }
+      }
+
+      @keyframes fadeOut{
+        from {
+          opacity:1;
+        }
+        to {
+          opacity:0;
+        }
+      }
+
+      @keyframes scaleUp{
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(2);
+        }
+      }
+        
       `}</style>
     </>
   );

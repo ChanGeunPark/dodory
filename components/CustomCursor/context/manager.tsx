@@ -6,12 +6,14 @@ interface Props {
 }
 
 //React Context 개념 알기
-export default function CustomCursorManager({ children }: Props) {
+export default function CustomCursorManager({
+  children: cursorChildren,
+}: Props) {
   const [type, setType] = useState<CursorLookType>("default");
 
   return (
     <CustomCursorContext.Provider value={{ type, setType }}>
-      {children}
+      {cursorChildren}
     </CustomCursorContext.Provider>
   );
 }
