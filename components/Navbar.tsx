@@ -14,7 +14,6 @@ interface UserSesstion {
 
 export default function Navbar(session?: UserSesstion) {
   const { setType } = useContext(CustomCursorContext);
-
   const router = useRouter();
   const [logoutSession] = useMutation("/api/users/logout");
 

@@ -103,3 +103,99 @@ html.has-scroll-dragging {
   right: auto;
   bottom: 0;
 }
+
+/*cursor css*/
+.main-cursor,
+.secondary-cursor {
+  z-index: 10000;
+
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  position: fixed;
+}
+
+.main-cursor {
+  transition: opacity 1s cubic-bezier(0.77, 0, 0.175, 1);
+  animation: fadeIn 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+  mix-blend-mode: difference;
+}
+.main-cursor .main-cursor-background {
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+}
+
+.secondary-cursor {
+  width: 60px;
+  height: 60px;
+}
+
+.secondary-cursor .cursor-background {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+  position: relative;
+}
+
+.secondary-cursor .cursor-background::before {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fadeOut 0.75s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+.secondary-cursor .cursor-background::after {
+  content: "";
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: fadeOut 0.75s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+.link .cursor-background {
+  animation: fadeOut 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+.link .main-cursor-background {
+  animation: scaleUp 1s cubic-bezier(0.77, 0, 0.175, 1) 0s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+  }
+}
