@@ -120,8 +120,8 @@ html.has-scroll-dragging {
   mix-blend-mode: difference;
 }
 .main-cursor .main-cursor-background {
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   background: white;
   border-radius: 50%;
 }
@@ -196,6 +196,6 @@ html.has-scroll-dragging {
     transform: scale(1);
   }
   to {
-    transform: scale(2);
+    transform: scale(4);
   }
 }

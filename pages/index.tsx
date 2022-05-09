@@ -17,6 +17,8 @@ import DodoryImg from "@components/LandingLayout3";
 import useUser from "@libs/client/useUser";
 import LandingLayout3 from "@components/LandingLayout3";
 import LandingLayout4 from "@components/LandingLayout4";
+import client from "@libs/server/client";
+import { motion } from "framer-motion";
 
 const Home: NextPage<{ products: Product[] }> = ({ products }) => {
   return (
@@ -298,7 +300,7 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
   );
 };
 
-export async function getServerSideProps(context: any) {
+export async function getStaticProps(context: any) {
   const products = await client?.product.findMany({});
 
   return {
