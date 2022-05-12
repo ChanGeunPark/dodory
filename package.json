@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@prisma/client": "^3.10.0",
+    "@splinetool/react-spline": "^2.2.1",
+    "@splinetool/runtime": "^0.9.50",
     "framer-motion": "^6.3.3",
     "iron-session": "^6.1.2",
     "next": "^12.1.0",

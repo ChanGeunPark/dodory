@@ -22,7 +22,7 @@ interface UploadProductForm {
   thumb3?: FileList;
 }
 
-export default function uploadProduct() {
+export default function UploadProduct() {
   const {
     register,
     watch,
