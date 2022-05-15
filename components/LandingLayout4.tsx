@@ -19,7 +19,7 @@ export default function LandingLayout4({ products }: ProductsResponse) {
   const { setType } = useContext(CustomCursorContext);
 
   return (
-    <article className="w-full bg-[#ECECEC] min-h-[600px] relative">
+    <article className="w-full bg-[#ECECEC] min-h-[600px] pb-20 relative">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1920 96.695"
@@ -40,7 +40,7 @@ export default function LandingLayout4({ products }: ProductsResponse) {
         width="145.873"
         height="241.585"
         viewBox="0 0 145.873 241.585"
-        className="absolute z-0 top-0 left-[32%]"
+        className="absolute z-0 top-0 left-[20%] hidden"
       >
         <path
           id="패스_1752"
@@ -56,7 +56,7 @@ export default function LandingLayout4({ products }: ProductsResponse) {
         width="23.005"
         height="130.107"
         viewBox="0 0 23.005 130.107"
-        className="absolute z-0 top-0 left-[28%]"
+        className="absolute z-0 top-0 left-[14%] hidden"
       >
         <path
           id="패스_1760"
@@ -112,13 +112,13 @@ export default function LandingLayout4({ products }: ProductsResponse) {
             <SwiperSlide key={items.id} className="!overflow-visible">
               <Link href={`/items/${items.id}`}>
                 <a
-                  className="block h-[250px] border-4  border-gray-700 rounded-xl relative z-10 hover:border-red-500 transition-colors group"
+                  className="block h-[250px] border-2 group border-gray-400 rounded-xl relative z-10 hover:border-gray-700 hover:shadow-lg transition-all group"
                   onMouseOver={() => setType("link")}
                   onMouseOut={() => setType("default")}
                 >
                   <span
                     className={cls(
-                      "absolute bottom-full z-20",
+                      "absolute bottom-full z-20 opacity-40 group-hover:opacity-90 transition-all",
                       `${position[index]}`
                     )}
                     dangerouslySetInnerHTML={{ __html: dodorySvg[index] }}

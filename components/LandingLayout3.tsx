@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useContext, useEffect } from "react";
 import CustomCursorContext from "./CustomCursor/context/CustomCursorContext";
 import { motion, useViewportScroll } from "framer-motion";
+import SliderPage from "./SliderPage";
 
 interface ProductsResponse {
   products: Product[];
@@ -19,9 +20,9 @@ export default function LandingLayout3({ products }: ProductsResponse) {
   const { scrollY, scrollYProgress } = useViewportScroll();
 
   useEffect(() => {
-    scrollY.onChange(() => {
-      console.log(scrollY.get(), scrollYProgress.get());
-    });
+    // scrollY.onChange(() => {
+    //   console.log(scrollY.get(), scrollYProgress.get());
+    // });
   }, [scrollY, scrollYProgress]);
 
   return (
@@ -62,6 +63,75 @@ export default function LandingLayout3({ products }: ProductsResponse) {
           다육이들과 일상을 함께해보세요
         </h2>
 
+        <div className="w-full flex justify-end mt-6">
+          <a
+            className="flex items-end"
+            href="/"
+            onMouseOver={() => setType("link")}
+            onMouseOut={() => setType("default")}
+          >
+            <span className="mr-2">다육이 더보기</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              width="36.742"
+              height="55.83"
+              viewBox="0 0 36.742 55.83"
+            >
+              <defs>
+                <clipPath id="clip-path">
+                  <rect
+                    id="사각형_199"
+                    data-name="사각형 199"
+                    width="36.742"
+                    height="55.83"
+                    fill="#6a6a6a"
+                  />
+                </clipPath>
+              </defs>
+              <g
+                id="그룹_157"
+                data-name="그룹 157"
+                transform="translate(-1543.258 -1497.831)"
+              >
+                <g
+                  id="그룹_156"
+                  data-name="그룹 156"
+                  transform="translate(1543.258 1497.83)"
+                >
+                  <g
+                    id="그룹_155"
+                    data-name="그룹 155"
+                    clipPath="url(#clip-path)"
+                  >
+                    <path
+                      id="패스_1734"
+                      data-name="패스 1734"
+                      d="M9.742,55.83A6.186,6.186,0,0,1,3.563,49.65v-15.8h-1.4A2.162,2.162,0,0,1,0,31.688v-2.14a2.162,2.162,0,0,1,2.159-2.159H6.613l-.746-.909A12.815,12.815,0,0,1,3.184,15.871a.555.555,0,0,1,.441-.441,12.937,12.937,0,0,1,1.913-.224l.658-.028-.138-.644a12.785,12.785,0,0,1,.78-7.8.556.556,0,0,1,.51-.336h.015A12.835,12.835,0,0,1,12.17,7.457l.575.25.179-.6A12.916,12.916,0,0,1,18.087.094a.559.559,0,0,1,.624,0,12.771,12.771,0,0,1,4.928,6.413L23.81,7l.5-.14a12.92,12.92,0,0,1,3.133-.468h.017a.555.555,0,0,1,.508.336,12.762,12.762,0,0,1,.769,7.86l-.165.752.765-.079a12.867,12.867,0,0,1,3.776.167.556.556,0,0,1,.441.441,12.817,12.817,0,0,1-2.683,10.608l-.747.909h4.454a2.162,2.162,0,0,1,2.159,2.159v2.139a2.162,2.162,0,0,1-2.159,2.159h-1.4v15.8a6.186,6.186,0,0,1-6.179,6.179ZM4.677,49.65a5.071,5.071,0,0,0,5.065,5.065H27.007a5.07,5.07,0,0,0,5.065-5.065v-15.8h-8.69a.557.557,0,0,1,0-1.114h11.2a1.046,1.046,0,0,0,1.045-1.045V29.548A1.046,1.046,0,0,0,34.583,28.5H2.159a1.046,1.046,0,0,0-1.045,1.045v2.139a1.046,1.046,0,0,0,1.045,1.045h11.2a.557.557,0,0,1,0,1.114H4.677Zm1.4-33.342a11.868,11.868,0,0,0-1.446.089l-.43.053-.053.43A11.664,11.664,0,0,0,7.5,26.624c.214.214.444.427.684.631l.156.133h9.473l-.066-.615a11.587,11.587,0,0,0-3.369-7.027,11.655,11.655,0,0,0-8.3-3.437m24.578,0A11.735,11.735,0,0,0,19,26.773l-.066.615H28.4l.156-.134c.24-.205.47-.417.683-.631a11.663,11.663,0,0,0,3.348-9.743l-.053-.43-.43-.053a11.87,11.87,0,0,0-1.447-.089M26.668,7.556a11.733,11.733,0,0,0-10.625,12.2l.008.179.111.141a12.769,12.769,0,0,1,1.7,2.824l.509,1.166.509-1.166a12.881,12.881,0,0,1,8.128-7.176l.283-.084.089-.282a11.61,11.61,0,0,0-.136-7.434L27.1,7.515Zm-19.1.367A11.67,11.67,0,0,0,7.3,14.9l.1.357.367.048a12.828,12.828,0,0,1,6.35,2.709l.778.623.121-.989a12.687,12.687,0,0,1,1.559-4.709l.175-.311-.21-.289A11.739,11.739,0,0,0,8.142,7.556l-.431-.041Zm10.487-6.43a11.822,11.822,0,0,0-4.189,6.4l-.1.383L14.1,8.5a12.8,12.8,0,0,1,2.877,2.587l.43.524.43-.524a12.913,12.913,0,0,1,4.476-3.48l.452-.211L22.6,6.921a11.706,11.706,0,0,0-3.864-5.426L18.4,1.227Z"
+                      fill="#6a6a6a"
+                    />
+                    <path
+                      id="패스_1735"
+                      data-name="패스 1735"
+                      d="M36.185,66.58a.557.557,0,1,1,.557-.557.558.558,0,0,1-.557.557"
+                      transform="translate(-17.814 -32.733)"
+                      fill="#6a6a6a"
+                    />
+                  </g>
+                </g>
+                <path
+                  id="패스_1736"
+                  data-name="패스 1736"
+                  d="M5532.3,1540.435h19.441l-4.27,4.27"
+                  transform="translate(-3980)"
+                  fill="none"
+                  stroke="#6a6a6a"
+                  strokeWidth="1"
+                />
+              </g>
+            </svg>
+          </a>
+        </div>
         {/*다육이 슬라이더*/}
         <Swiper
           slidesPerView={1}
@@ -84,7 +154,7 @@ export default function LandingLayout3({ products }: ProductsResponse) {
             },
           }}
           modules={[Pagination]}
-          className="succulent w-full mt-12"
+          className="succulent w-full mt-3"
         >
           {products?.map((items) => (
             <SwiperSlide key={items.id}>
@@ -107,6 +177,8 @@ export default function LandingLayout3({ products }: ProductsResponse) {
             </SwiperSlide>
           ))}
         </Swiper>
+
+        <SliderPage dataArr={[]} />
       </section>
     </article>
   );
