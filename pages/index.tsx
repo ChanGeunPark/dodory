@@ -19,7 +19,7 @@ import LandingLayout3 from "@components/LandingLayout3";
 import LandingLayout4 from "@components/LandingLayout4";
 import client from "@libs/server/client";
 import { motion } from "framer-motion";
-import Spline3d from "@components/Spline3d";
+import { BookPlant, Spline3d } from "@components/Spline3d";
 
 const Home: NextPage<{ products: Product[] }> = ({ products }) => {
   return (
@@ -36,20 +36,20 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
               <p className="text-white text-center mt-6">
                 저희는 언제나 정성으로 보살핀 사랑스러운 다육이와 함께하고
                 있습니다 <br />
-                저희 dodory와 남다른 하루를 시작해보세요
+                저희 dodo:&#41;ry와 남다른 하루를 시작해보세요
               </p>
             </div>
           </article>
 
-          <article className="banner h-screen w-full overflow-hidden relative bg-[#353535]">
+          <article className="banner h-screen w-full overflow-hidden relative bg-[#353535] hidden">
             <div className="absolute left-0 w-full top-36 flex flex-col justify-center items-center z-40">
               <h1 className="text-white mainText text-5xl mt-6">
-                Wellcome to dodory
+                Wellcome to dodo:&#41;ry
               </h1>
               <p className="text-white text-center mt-6">
                 저희는 언제나 정성으로 보살핀 사랑스러운 다육이와 함께하고
                 있습니다 <br />
-                저희 dodory와 남다른 하루를 시작해보세요
+                저희 dodo:&#41;ry와 남다른 하루를 시작해보세요
               </p>
             </div>
             <div className="w-full h-full flex items-end">
@@ -233,7 +233,7 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
                 width="137.823"
                 height="151.188"
                 viewBox="0 0 137.823 151.188"
-                className="mt-40"
+                className="mt-40 hidden"
               >
                 <g
                   id="그룹_191"
@@ -256,9 +256,14 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
                   />
                 </g>
               </svg>
+              <div className="w-[220px] h-[220px] mt-20 relative">
+                <BookPlant />
+              </div>
 
-              <h2 className="mt-6 font-bold text-3xl">+ DODORY 다육이 +</h2>
-              <p className="text-center mt-12 text-zinc-600 mb-12">
+              <h2 className="font-bold text-3xl relative -translate-y-3">
+                + DODO:&#41;RY 다육이 +
+              </h2>
+              <p className="text-center mt-9 text-zinc-600 mb-12">
                 저희 도도리는 고객님들의 행복한 하루를 다육이들과
                 <br />
                 도도리표처럼 따듯했던 시간을 다시금 돌아보길 원합니다

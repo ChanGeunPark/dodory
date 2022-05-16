@@ -37,9 +37,7 @@ export default function Navbar(session?: UserSesstion) {
   }, []);
   return (
     <div
-      className={cls(
-        "bg-white px-4 bg-transparent absolute top-0 left-0 w-full z-50"
-      )}
+      className={cls("px-4 bg-transparent absolute top-0 left-0 w-full z-50")}
     >
       <header className="mx-auto container flex justify-between items-center h-20">
         <div className="flex items-center">
