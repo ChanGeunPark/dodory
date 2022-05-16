@@ -18,7 +18,7 @@ export default function Layout({ children, useFooter = true }: LayoutProps) {
   const containerRef = useRef(null);
   const router = useRouter();
   return (
-    <div data-scroll-container ref={containerRef}>
+    <div ref={containerRef}>
       <Navbar user={user} />
       {router.pathname !== "/" ? (
         <div className="w-full h-[350px] bg-black overflow-hidden">

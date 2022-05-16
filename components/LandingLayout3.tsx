@@ -178,7 +178,7 @@ export default function LandingLayout3({ products }: ProductsResponse) {
           ))}
         </Swiper>
 
-        <SliderPage dataArr={[]} />
+        <SliderPage list={[]} />
       </section>
     </article>
   );

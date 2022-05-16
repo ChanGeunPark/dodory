@@ -15,6 +15,7 @@ h5,
 h6 {
   font-family: "Noto Sans KR", sans-serif;
 }
+html,
 body {
   overflow-x: hidden;
 }
