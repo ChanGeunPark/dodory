@@ -6,18 +6,13 @@ export function Spline3d() {
   });
 
   return (
-    <Spline scene="https://prod.spline.design/NbqCXT93iwZ3tjAN/scene.splinecode" />
-  );
-}
-
-export function BookPlant() {
-  const Spline = dynamic(() => import("@splinetool/react-spline"), {
-    ssr: false,
-  });
-  return (
-    <Spline
-      scene="https://prod.spline.design/GHzdi3uELfz37BpW/scene.splinecode"
-      className="w-full h-full"
-    />
+    // <Spline scene="https://prod.spline.design/NbqCXT93iwZ3tjAN/scene.splinecode" />
+    <iframe
+      className="relative z-10"
+      src="https://my.spline.design/girlflowersdevelop-b6c0fe2c48c266c86e014f132d35a962/"
+      frameBorder="0"
+      width="100%"
+      height="100%"
+    ></iframe>
   );
 }
