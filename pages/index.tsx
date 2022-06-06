@@ -19,7 +19,7 @@ import LandingLayout3 from "@components/LandingLayout3";
 import LandingLayout4 from "@components/LandingLayout4";
 import client from "@libs/server/client";
 import { motion } from "framer-motion";
-import { BookPlant, Spline3d } from "@components/Spline3d";
+import { Spline3d } from "@components/Spline3d";
 
 const Home: NextPage<{ products: Product[] }> = ({ products }) => {
   return (
@@ -27,9 +27,9 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
       <CustomCursor />
       <Layout>
         <main>
-          <article className="w-full h-screen relative z-0">
+          <article className="w-full h-screen relative z-0 bg-gradient-to-r from-[#a530bd] to-[#f92726]">
             <Spline3d />
-            <div className="absolute left-0 w-full top-24 flex flex-col justify-center items-center z-40 pointer-events-none">
+            <div className="absolute left-0 w-full top-[20%] flex flex-col justify-center items-center z-40 pointer-events-none">
               <h1 className="text-white mainText text-5xl mt-6">
                 Wellcome to dodory
               </h1>
@@ -39,6 +39,9 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
                 저희 dodo:&#41;ry와 남다른 하루를 시작해보세요
               </p>
             </div>
+            <span className="text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl text-white z-0">
+              3D Loading...
+            </span>
           </article>
 
           <article className="banner h-screen w-full overflow-hidden relative bg-[#353535] hidden">
@@ -82,158 +85,17 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
                 className="absolute bottom-[10%] w-[250px] lg:w-[22%] right-0 lg:right-[15%] origin-bottom object3"
                 alt="object3"
               />
-              <div className="w-full h-[560px] absolute bottom-0 left-0 z-20 hidden">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-                  <defs>
-                    <radialGradient
-                      id="Gradient1"
-                      cx="50%"
-                      cy="50%"
-                      fx="10%"
-                      fy="50%"
-                      r=".5"
-                    >
-                      <animate
-                        attributeName="fx"
-                        dur="34s"
-                        values="0%;3%;0%"
-                        repeatCount="indefinite"
-                      />
-                      <stop offset="0%" stopColor="#ff0" />
-                      <stop offset="100%" stopColor="#ff00" />
-                    </radialGradient>
-                    <radialGradient
-                      id="Gradient2"
-                      cx="50%"
-                      cy="50%"
-                      fx="10%"
-                      fy="50%"
-                      r=".5"
-                    >
-                      <animate
-                        attributeName="fx"
-                        dur="23.5s"
-                        values="0%;3%;0%"
-                        repeatCount="indefinite"
-                      />
-                      <stop offset="0%" stopColor="#0ff" />
-                      <stop offset="100%" stopColor="#0ff0" />
-                    </radialGradient>
-                    <radialGradient
-                      id="Gradient3"
-                      cx="50%"
-                      cy="50%"
-                      fx="50%"
-                      fy="50%"
-                      r=".5"
-                    >
-                      <animate
-                        attributeName="fx"
-                        dur="21.5s"
-                        values="0%;3%;0%"
-                        repeatCount="indefinite"
-                      />
-                      <stop offset="0%" stopColor="#f0f" />
-                      <stop offset="100%" stopColor="#f0f0" />
-                    </radialGradient>
-                  </defs>
-                  <rect
-                    x="0"
-                    y="0"
-                    width="100%"
-                    height="100%"
-                    fill="url(#Gradient1)"
-                  >
-                    <animate
-                      attributeName="x"
-                      dur="20s"
-                      values="25%;0%;25%"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="y"
-                      dur="21s"
-                      values="0%;25%;0%"
-                      repeatCount="indefinite"
-                    />
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      from="0 50 50"
-                      to="360 50 50"
-                      dur="17s"
-                      repeatCount="indefinite"
-                    />
-                  </rect>
-                  <rect
-                    x="0"
-                    y="0"
-                    width="100%"
-                    height="100%"
-                    fill="url(#Gradient2)"
-                  >
-                    <animate
-                      attributeName="x"
-                      dur="23s"
-                      values="-25%;0%;-25%"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="y"
-                      dur="24s"
-                      values="0%;50%;0%"
-                      repeatCount="indefinite"
-                    />
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      from="0 50 50"
-                      to="360 50 50"
-                      dur="18s"
-                      repeatCount="indefinite"
-                    />
-                  </rect>
-                  <rect
-                    x="0"
-                    y="0"
-                    width="100%"
-                    height="100%"
-                    fill="url(#Gradient3)"
-                  >
-                    <animate
-                      attributeName="x"
-                      dur="25s"
-                      values="0%;25%;0%"
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="y"
-                      dur="26s"
-                      values="0%;25%;0%"
-                      repeatCount="indefinite"
-                    />
-                    <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      from="360 50 50"
-                      to="0 50 50"
-                      dur="19s"
-                      repeatCount="indefinite"
-                    />
-                  </rect>
-                </svg>
-              </div>
             </div>
           </article>
 
-          <article className="bg-[#F9F9F9] h-[787px] relative">
+          <article className="bg-[#F9F9F9] h-[787px] relative overflow-hidden">
             <section className="flex flex-col items-center absolute w-full h-full">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="137.823"
                 height="151.188"
                 viewBox="0 0 137.823 151.188"
-                className="mt-40 hidden"
+                className="mt-40"
               >
                 <g
                   id="그룹_191"
@@ -256,11 +118,8 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
                   />
                 </g>
               </svg>
-              <div className="w-[220px] h-[220px] mt-20 relative">
-                <BookPlant />
-              </div>
 
-              <h2 className="font-bold text-3xl relative -translate-y-3">
+              <h2 className="font-bold text-3xl relative mt-6">
                 + DODO:&#41;RY 다육이 +
               </h2>
               <p className="text-center mt-9 text-zinc-600 mb-12">
@@ -278,7 +137,7 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
             <img
               src="/index/bulb.png"
               alt="전구"
-              className="absolute left-1/2 -translate-x-1/2 -top-3"
+              className="absolute left-1/2 -translate-x-1/2 -top-3 z-0"
             />
             <img
               src="/index/background.png"

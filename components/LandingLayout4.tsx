@@ -110,7 +110,7 @@ export default function LandingLayout4({ products }: ProductsResponse) {
         >
           {products?.map((items, index) => (
             <SwiperSlide key={items.id} className="!overflow-visible">
-              <Link href={`/items/${items.id}`}>
+              <Link href="/">
                 <a
                   className="block h-[250px] border-2 group border-gray-400 rounded-xl relative z-10 hover:border-gray-700 hover:shadow-lg transition-all group"
                   onMouseOver={() => setType("link")}

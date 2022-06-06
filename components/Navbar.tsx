@@ -11,7 +11,7 @@ import CustomCursorContext from "./CustomCursor/context/CustomCursorContext";
 interface UserSesstion {
   user?: User;
 }
-
+//deploytest
 export default function Navbar(session?: UserSesstion) {
   const { setType } = useContext(CustomCursorContext);
   const router = useRouter();
