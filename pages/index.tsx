@@ -27,7 +27,7 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
       <CustomCursor />
       <Layout>
         <main>
-          <article className="w-full h-screen relative z-0 bg-gradient-to-r from-[#a530bd] to-[#f92726]">
+          <article className="w-full h-screen hidden relative z-0 bg-gradient-to-r from-[#a530bd] to-[#f92726]">
             <Spline3d />
             <div className="absolute left-0 w-full top-[20%] flex flex-col justify-center items-center z-40 pointer-events-none">
               <h1 className="text-white mainText text-5xl mt-6">
@@ -44,7 +44,7 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
             </span>
           </article>
 
-          <article className="banner h-screen w-full overflow-hidden relative bg-[#353535] hidden">
+          <article className="banner h-screen w-full overflow-hidden relative bg-[#353535]">
             <div className="absolute left-0 w-full top-36 flex flex-col justify-center items-center z-40">
               <h1 className="text-white mainText text-5xl mt-6">
                 Wellcome to dodo:&#41;ry
