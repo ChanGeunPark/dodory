@@ -31,7 +31,7 @@ const Home: NextPage<{ products: Product[] }> = ({ products }) => {
             <Spline3d />
             <div className="absolute left-0 w-full top-[20%] flex flex-col justify-center items-center z-40 pointer-events-none">
               <h1 className="text-white mainText text-5xl mt-6">
-                Wellcome to dodory
+                Welcome to dodory
               </h1>
               <p className="text-white text-center mt-6">
                 저희는 언제나 정성으로 보살핀 사랑스러운 다육이와 함께하고
